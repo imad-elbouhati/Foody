@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/foodDetailsFragment"
+        android:name="com.imadev.foody.ui.FoodDetailsFragment"
+        android:label="fragment_food_details"
+        tools:layout="@layout/fragment_food_details" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.imadev.foody.ui.home.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.imadev.foody.ui.FavoritesFragment"
+        android:label="Favorites"
+
+        tools:layout="@layout/fragment_favorites" />
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.imadev.foody.ui.UserFragment"
+        android:label="@string/user"
+        tools:layout="@layout/fragment_user" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.imadev.foody.HistoryFragment"
+        android:label="@string/history"
+        tools:layout="@layout/fragment_history" />
+</navigation>

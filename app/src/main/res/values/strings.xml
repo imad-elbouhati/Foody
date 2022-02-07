@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Foody</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="go_back">Go back</string>
+    <string name="add_to_favorite">Add to favorite</string>
+    <string name="food_image">Food image</string>
+    <string name="description">Description</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="history">History</string>
+    <string name="user">User</string>
+    <string name="favourites">Favourites</string>
+    <string name="home">Home</string>
+    <string name="open_drawer">open</string>
+    <string name="close_drawer">close</string>
+</resources>
