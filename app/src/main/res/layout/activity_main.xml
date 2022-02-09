@@ -18,35 +18,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            app:titleTextColor="@color/black"
-            android:background="@color/foody_background"
-            android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+            app:title=" ">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                tools:text="Home" />
+
+        </androidx.appcompat.widget.Toolbar>
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/bottom_nav_view"
+            android:layout_above="@+id/bottom_nav"
             android:layout_below="@+id/toolbar"
             app:defaultNavHost="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:navGraph="@navigation/nav_graph" />
+            app:navGraph="@navigation/foody_graph" />
+
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_nav_view"
-            style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+            android:id="@+id/bottom_nav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@color/foody_background"
-            app:itemIconTint="@color/bottom_nav_item"
-            app:itemTextColor="@color/bottom_nav_item"
             app:menu="@menu/menu_bottom_navigation" />
+
 
     </RelativeLayout>
 
@@ -54,7 +61,8 @@
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:menu="@menu/menu_bottom_navigation"
-        android:layout_gravity="start" />
+        android:layout_gravity="start"
+        app:menu="@menu/menu_bottom_navigation" />
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

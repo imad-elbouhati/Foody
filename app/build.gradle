@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-
 }
 
 android {
@@ -41,15 +40,9 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     def nav_version = "2.4.0"
 
-    // Kotlin
-    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
-    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
-    // Feature module Support
-    implementation("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
 
-    // Testing Navigation
-    androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
+
 
 
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-alpha01")
@@ -58,9 +51,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-alpha01")
 
 
-    implementation("androidx.navigation:navigation-runtime-ktx:2.4.0")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.4.0")
-    implementation("androidx.navigation:navigation-ui-ktx:2.4.0")
+    implementation("androidx.navigation:navigation-runtime-ktx:2.4.0-alpha04")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.4.0-alpha04")
+    implementation("androidx.navigation:navigation-ui-ktx:2.4.0-alpha04")
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'

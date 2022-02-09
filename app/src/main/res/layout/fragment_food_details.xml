@@ -33,32 +33,6 @@
             app:layout_constraintGuide_percent=".07" />
 
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toStartOf="@+id/right_guideline"
-            app:layout_constraintStart_toStartOf="@+id/left_guideline"
-            app:layout_constraintTop_toTopOf="@+id/top_guideline">
-
-            <ImageView
-                android:id="@+id/back_arrow_iv"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:contentDescription="@string/go_back"
-                android:src="@drawable/ic_arrow_back" />
-
-
-            <ImageView
-                android:id="@+id/heart_iv"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentEnd="true"
-                android:contentDescription="@string/add_to_favorite"
-                android:src="@drawable/ic_heart" />
-
-        </RelativeLayout>
 
 
         <ImageView
@@ -70,7 +44,8 @@
             android:src="@drawable/foodd"
             app:layout_constraintEnd_toStartOf="@+id/right_guideline"
             app:layout_constraintStart_toStartOf="@+id/left_guideline"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+            app:layout_constraintTop_toTopOf="parent"
+             />
 
 
         <TextView

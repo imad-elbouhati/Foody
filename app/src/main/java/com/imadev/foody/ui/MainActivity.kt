@@ -1,7 +1,7 @@
 package com.imadev.foody.ui
 
 import android.os.Bundle
-import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -31,30 +31,34 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navHostFragment.navController
 
+        appBarConfiguration = AppBarConfiguration(navController.graph)
+
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.homeFragment,
-                R.id.homeFragment,
-                R.id.favoritesFragment,
+                R.id.userFragment,
                 R.id.historyFragment,
-                R.id.userFragment
+                R.id.favoritesFragment
             ),
             binding.drawerLayout
         )
 
+
         setSupportActionBar(binding.toolbar)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-
-        binding.bottomNavView.setupWithNavController(navController)
+        binding.bottomNav.setupWithNavController(navController)
         binding.navView.setupWithNavController(navController)
-
-
-
     }
 
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+
+    fun setToolbarTitle(@StringRes title: Int) {
+        binding.toolbarTitle.text = getString(title)
+    }
+
 }
