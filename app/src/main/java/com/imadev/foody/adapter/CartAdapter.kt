@@ -1,8 +1,10 @@
 package com.imadev.foody.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.imadev.foody.R
 import com.imadev.foody.databinding.ItemRowOrderLayoutBinding
 import com.imadev.foody.model.Food
 import com.imadev.foody.utils.CounterView
@@ -16,11 +18,14 @@ class CartAdapter(val foods: MutableList<Food> = mutableListOf()) : RecyclerView
 
     class ViewHolder(private val binding: ItemRowOrderLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        val context: Context = binding.root.context
+
         fun bind(food: Food) {
             with(binding) {
                 foodImg.setImageResource(food.image)
                 foodTitle.text = food.title
-                foodPrice.text = food.price
+                foodPrice.text = context.resources.getString(R.string.price, food.formattedPrice)
             }
         }
     }

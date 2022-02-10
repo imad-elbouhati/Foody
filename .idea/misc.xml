@@ -14,6 +14,7 @@
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/drawable/ic_minus.xml" value="0.1615" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/drawable/ic_plus.xml" value="0.1615" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/drawable/ic_user.xml" value="0.1515" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/drawable/line_drawable.xml" value="0.12" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/drawable/neon_effect.xml" value="0.1515" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/drawable/neon_home.xml" value="0.1515" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/drawable/rounded_button.xml" value="0.152" />
@@ -22,6 +23,7 @@
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/layout/counter_layout.xml" value="1.0" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_blank.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_cart.xml" value="0.25" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_checkout.xml" value="0.25" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_favorites.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_food_details.xml" value="0.18" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_history.xml" value="0.18645833333333334" />

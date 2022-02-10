@@ -22,4 +22,14 @@
     <string name="swipe_to_delete">Swipe to delete</string>
     <string name="swipe_on_item_to_delete">Swipe on item to delete</string>
     <string name="complete_order">Complete order</string>
+    <string name="price">%1$s MAD</string>
+    <string name="checkout">Checkout</string>
+    <string name="delivery">Delivery</string>
+    <string name="address_details">Address details</string>
+    <string name="change">change</string>
+    <string name="payment_method">Payment method</string>
+    <string name="card">Card</string>
+    <string name="bank_account">Bank account</string>
+    <string name="total">Total</string>
+    <string name="proceed_to_payment">Proceed to payment</string>
 </resources>

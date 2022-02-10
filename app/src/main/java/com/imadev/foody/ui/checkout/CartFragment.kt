@@ -1,4 +1,4 @@
-package com.imadev.foody.ui
+package com.imadev.foody.ui.checkout
 
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
@@ -16,12 +16,13 @@ import com.imadev.foody.R
 import com.imadev.foody.adapter.CartAdapter
 import com.imadev.foody.databinding.FragmentCartBinding
 import com.imadev.foody.factory.FoodFactory
+import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.ui.common.BaseFragment
 
 
-class CartFragment : BaseFragment<FragmentCartBinding, CartViewModel>() {
+class CartFragment : BaseFragment<FragmentCartBinding, CheckoutViewModel>() {
 
-    override val viewModel: CartViewModel by viewModels()
+    override val viewModel: CheckoutViewModel by viewModels()
 
     private var adapter = CartAdapter()
 
