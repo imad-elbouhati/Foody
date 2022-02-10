@@ -12,6 +12,7 @@ fun View.hide(invisible: Boolean = false) {
     }
 }
 
+
 fun View.show() {
     this.visibility = View.VISIBLE
 }

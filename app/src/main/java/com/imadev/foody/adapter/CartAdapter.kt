@@ -3,17 +3,18 @@ package com.imadev.foody.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.imadev.foody.databinding.ItemRowFoodHomBinding
+import com.imadev.foody.databinding.ItemRowOrderLayoutBinding
 import com.imadev.foody.model.Food
+import com.imadev.foody.utils.CounterView
 
-class FoodListHomeAdapter(private val foods: List<Food>) :
-    RecyclerView.Adapter<FoodListHomeAdapter.ViewHolder>() {
-
-
-    private var onClick: ((Food, Int) -> Unit)? = null
+class CartAdapter(val foods: MutableList<Food> = mutableListOf()) : RecyclerView.Adapter<CartAdapter.ViewHolder>(),
+    CounterView.OnCountChangeListener {
 
 
-    class ViewHolder(private val binding: ItemRowFoodHomBinding) :
+    private var listener: ((Int) -> Unit)? = null
+
+
+    class ViewHolder(private val binding: ItemRowOrderLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(food: Food) {
             with(binding) {
@@ -27,22 +28,26 @@ class FoodListHomeAdapter(private val foods: List<Food>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
-            ItemRowFoodHomBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemRowOrderLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding.counter.addOnCountChangeListener(this)
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val food = foods[position]
         holder.bind(food)
-        holder.itemView.setOnClickListener {
-            onClick?.let { it1 -> it1(food, position) }
-        }
+
     }
 
     override fun getItemCount(): Int = foods.size
 
-    fun setItemClickListener(onClick: (Food, Int) -> Unit) {
-        this.onClick = onClick
+    fun addOnCountChanged(listener: (Int) -> Unit) {
+        this.listener = listener
+    }
+
+
+    override fun onCountChange(count: Int) {
+        listener?.invoke(count)
     }
 
 

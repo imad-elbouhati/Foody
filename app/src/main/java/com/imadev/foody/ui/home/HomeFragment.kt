@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
+import com.google.android.material.tabs.TabLayout
 import com.imadev.foody.R
 import com.imadev.foody.adapter.FoodListHomeAdapter
 import com.imadev.foody.databinding.FragmentHomeBinding
@@ -13,7 +15,7 @@ import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.ui.common.BaseFragment
 
 
-class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(){
 
     override val viewModel: HomeViewModel by viewModels()
 
@@ -46,7 +48,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         }
 
 
+
+
     }
+
 
 
 }
