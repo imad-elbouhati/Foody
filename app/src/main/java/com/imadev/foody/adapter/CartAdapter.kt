@@ -65,8 +65,6 @@ class CartAdapter(private var foods: MutableList<Food> = mutableListOf()) : Recy
 
 
 
-    fun updateList(updatedList:List<Food>) {
-        this.foods = updatedList as MutableList<Food>
-    }
+
 
 }

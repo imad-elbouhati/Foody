@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.graphics.Canvas
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -96,17 +97,14 @@ class CartFragment : BaseFragment<FragmentCartBinding, CheckoutViewModel>() {
         }
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-            val foods = viewModel.cartList
             val position = viewHolder.layoutPosition
-            val food = foods[position]
-            foods.remove(food)
-
-            adapter.updateList(foods)
-
+            val food = viewModel.cartList[position]
+            viewModel.cartList.remove(food)
             adapter.notifyItemRemoved(position)
+
             Snackbar.make(requireView(), "Order successfully deleted", Snackbar.LENGTH_LONG).apply {
                 setAction("Undo") {
-                    foods.add(food)
+                    viewModel.cartList.add(position,food)
                     adapter.notifyItemInserted(position)
                 }
                 show()
@@ -118,9 +116,9 @@ class CartFragment : BaseFragment<FragmentCartBinding, CheckoutViewModel>() {
         val rotate = ObjectAnimator.ofFloat(binding.swipeIcon, "rotation", 10f, -40f)
 
         with(rotate) {
-            repeatCount = 1
+            repeatCount = 5
             repeatMode = ValueAnimator.REVERSE
-            duration = 700
+            duration = 500
             start()
         }
     }
