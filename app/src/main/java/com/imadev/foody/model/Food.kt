@@ -1,20 +1,22 @@
 package com.imadev.foody.model
 
+import android.os.Parcelable
 import com.imadev.foody.R
-import java.text.DecimalFormat
+import com.imadev.foody.utils.formatDecimal
+import kotlinx.parcelize.Parcelize
 
+
+@Parcelize
 data class Food(
     val image: Int = R.drawable.foodd,
     val title: String = "Veggie tomato mix",
-    private val price: Double = 180.5,
-    val quantity: Int = 0
-) {
+    val price: Double = 0.0,
+    var quantity: Int = 0
+) : Parcelable {
 
 
-
-    private val decimalFormat = DecimalFormat("#.##")
-
-    var formattedPrice: String = decimalFormat.format(price)
+    var formattedPrice: String = formatDecimal(price)
 
 
 }
+

@@ -44,6 +44,7 @@
         <RelativeLayout
             android:id="@+id/holder"
             android:layout_width="0dp"
+            android:layout_marginTop="30dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="@+id/right_guideline"
             app:layout_constraintStart_toStartOf="@+id/left_guideline"
@@ -56,7 +57,7 @@
                 android:layout_centerVertical="true"
                 android:text="@string/address_details"
                 android:textColor="@color/black"
-                android:textSize="19sp"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -66,8 +67,7 @@
                 android:layout_centerVertical="true"
                 android:text="@string/change"
                 android:textColor="@color/foody_orange"
-                android:textSize="19sp"
-                />
+                android:textSize="15sp" />
         </RelativeLayout>
 
         <com.google.android.material.card.MaterialCardView
@@ -84,7 +84,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:orientation="vertical"
                 android:padding="8dp">
@@ -93,14 +92,17 @@
                     android:id="@+id/client_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="27dp"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="17sp"
                     android:textStyle="bold"
                     tools:text="Imad El Bouhati" />
 
                 <View
-                    android:layout_width="300dp"
+                    android:layout_width="280dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
                     android:background="@drawable/line_drawable" />
 
                 <TextView
@@ -108,12 +110,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     tools:text="Hay Al Andalouss N 44 Tiflet Hay Al Andalouss N 44 TifletHay Al Andalouss N 44 Tiflet" />
 
                 <View
-                    android:layout_width="300dp"
+                    android:layout_width="280dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
                     android:background="@drawable/line_drawable" />
 
 
@@ -122,7 +126,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     tools:text="+212 624 52 47 10" />
 
             </LinearLayout>
@@ -137,7 +141,7 @@
             android:layout_marginTop="20dp"
             android:text="@string/payment_method"
             android:textColor="@color/black"
-            android:textSize="19sp"
+            android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/left_guideline"
             app:layout_constraintTop_toBottomOf="@+id/details_card_view" />
@@ -185,15 +189,16 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="20dp"
                         android:layout_toEndOf="@+id/cash_on_delivery_icon"
-                        android:text="@string/card"
+                        android:text="@string/cash_on_delivery"
                         android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textSize="17sp" />
                 </RelativeLayout>
 
                 <View
-                    android:layout_width="300dp"
+                    android:layout_width="280dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
                     android:background="@drawable/line_drawable" />
 
                 <RelativeLayout
@@ -222,8 +227,7 @@
                         android:layout_toEndOf="@+id/credit_card_icon"
                         android:text="@string/bank_account"
                         android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textSize="17sp" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -237,27 +241,28 @@
             android:layout_marginTop="35sp"
             android:text="@string/total"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="17sp"
             app:layout_constraintStart_toStartOf="@+id/left_guideline"
             app:layout_constraintTop_toBottomOf="@+id/payment_card_view" />
 
         <TextView
+            android:id="@+id/total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="0.00 MAD"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/total_tv"
             app:layout_constraintEnd_toEndOf="@+id/right_guideline"
-            app:layout_constraintTop_toTopOf="@+id/total_tv"
-            android:text="0.00 MAD" />
+            app:layout_constraintTop_toTopOf="@+id/total_tv" />
 
 
         <Button
             android:id="@+id/proceed_payment_btn"
             android:layout_width="0dp"
             android:layout_height="70dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/rounded_button"
             android:text="@string/proceed_to_payment"
             android:textAllCaps="false"

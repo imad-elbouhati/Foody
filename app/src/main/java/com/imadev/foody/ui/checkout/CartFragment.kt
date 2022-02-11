@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -20,12 +20,22 @@ import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.ui.common.BaseFragment
 
 
+private const val TAG = "CartFragment"
+
 class CartFragment : BaseFragment<FragmentCartBinding, CheckoutViewModel>() {
 
-    override val viewModel: CheckoutViewModel by viewModels()
+    override val viewModel: CheckoutViewModel by activityViewModels()
 
     private var adapter = CartAdapter()
 
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        viewModel.cartList = FoodFactory.foodList()
+        Toast.makeText(requireContext(), "onCreate Triggered", Toast.LENGTH_SHORT).show()
+
+    }
 
     override fun createViewBinding(
         inflater: LayoutInflater,
@@ -40,13 +50,19 @@ class CartFragment : BaseFragment<FragmentCartBinding, CheckoutViewModel>() {
         setSwipeAnimationIcon()
 
 
-        adapter = CartAdapter(FoodFactory.foodList())
+        adapter = CartAdapter(viewModel.cartList)
 
         setRecyclerView(adapter)
+
         adapter.addOnCountChanged { count ->
-            Toast.makeText(requireContext(), count.toString(), Toast.LENGTH_SHORT).show()
+
         }
 
+
+        binding.completeOrderBtn.setOnClickListener {
+
+            viewModel.navigate(R.id.action_cartFragment_to_checkoutFragment)
+        }
 
     }
 
@@ -80,21 +96,26 @@ class CartFragment : BaseFragment<FragmentCartBinding, CheckoutViewModel>() {
         }
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+            val foods = viewModel.cartList
             val position = viewHolder.layoutPosition
-            val food = adapter.foods[position]
-            adapter.foods.remove(food)
+            val food = foods[position]
+            foods.remove(food)
+
+            adapter.updateList(foods)
+
             adapter.notifyItemRemoved(position)
             Snackbar.make(requireView(), "Order successfully deleted", Snackbar.LENGTH_LONG).apply {
                 setAction("Undo") {
-                    adapter.foods.add(food)
+                    foods.add(food)
                     adapter.notifyItemInserted(position)
                 }
                 show()
             }
         }
     }
+
     private fun setSwipeAnimationIcon() {
-        val rotate = ObjectAnimator.ofFloat(binding.swipeIcon, "rotation", 0f, -40f)
+        val rotate = ObjectAnimator.ofFloat(binding.swipeIcon, "rotation", 10f, -40f)
 
         with(rotate) {
             repeatCount = 1

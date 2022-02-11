@@ -4,18 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
-import com.google.android.material.tabs.TabLayout
 import com.imadev.foody.R
 import com.imadev.foody.adapter.FoodListHomeAdapter
 import com.imadev.foody.databinding.FragmentHomeBinding
 import com.imadev.foody.factory.FoodFactory
 import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.ui.common.BaseFragment
+import com.imadev.foody.utils.Constants.Companion.FOOD_ARG
 
 
-class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(){
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
     override val viewModel: HomeViewModel by viewModels()
 
@@ -25,11 +25,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(){
     ): FragmentHomeBinding = FragmentHomeBinding.inflate(inflater, container, false)
 
 
+    override fun onResume() {
+        (activity as MainActivity).apply {
+            setToolbarTitle(R.string.home)
+            setToolbarIcon(R.drawable.ic_cart, false)
+            getToolbarIcon().setOnClickListener {
+                viewModel.navigate(R.id.action_homeFragment_to_cartFragment)
+            }
+        }
+        super.onResume()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
-        (activity as MainActivity).setToolbarTitle(R.string.home)
 
 
         val foodAdapter = FoodListHomeAdapter(FoodFactory.foodList())
@@ -43,15 +51,21 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(){
 
             foodAdapter.setItemClickListener { food, i ->
 
-                viewModel.navigate(R.id.action_homeFragment_to_foodDetailsFragment)
+                viewModel.navigate(
+                    R.id.action_homeFragment_to_foodDetailsFragment,
+                    bundleOf(FOOD_ARG to food)
+                )
             }
         }
 
 
-
-
     }
 
+
+    override fun onPause() {
+        (activity as MainActivity).setToolbarIcon(R.drawable.ic_cart, true)
+        super.onPause()
+    }
 
 
 }

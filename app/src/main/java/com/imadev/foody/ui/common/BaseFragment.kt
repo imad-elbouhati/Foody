@@ -58,7 +58,7 @@ abstract class BaseFragment<V : ViewBinding, VM : BaseViewModel> : Fragment() {
         when (navCommand) {
             is NavigationCommand.ToDirection -> findNavController().navigate(navCommand.directions)
             is NavigationCommand.Back -> findNavController().navigateUp()
-            is NavigationCommand.ToDirectionAction -> findNavController().navigate(navCommand.directions)
+            is NavigationCommand.ToDirectionAction -> findNavController().navigate(navCommand.directions,navCommand.bundle)
         }
     }
 

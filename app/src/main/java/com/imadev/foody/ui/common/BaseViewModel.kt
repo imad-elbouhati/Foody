@@ -1,5 +1,7 @@
 package com.imadev.foody.ui.common
 
+import android.os.Bundle
+import androidx.core.os.bundleOf
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,8 +22,8 @@ abstract class BaseViewModel : ViewModel() {
     }
 
 
-    fun navigate(navDirections: Int) {
-        _navigation.value = Event(NavigationCommand.ToDirectionAction(navDirections))
+    fun navigate(navDirections: Int,bundle: Bundle = bundleOf()) {
+        _navigation.value = Event(NavigationCommand.ToDirectionAction(navDirections,bundle))
     }
 
 

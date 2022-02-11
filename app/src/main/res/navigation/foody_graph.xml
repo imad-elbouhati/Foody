@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/foody_graph"
-    app:startDestination="@id/checkoutFragment">
+    app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.imadev.foody.ui.home.HomeFragment"
@@ -11,11 +11,18 @@
         <action
             android:id="@+id/action_homeFragment_to_foodDetailsFragment"
             app:destination="@id/foodDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
     </fragment>
     <fragment
         android:id="@+id/foodDetailsFragment"
         android:name="com.imadev.foody.ui.FoodDetailsFragment"
-        tools:layout="@layout/fragment_food_details" />
+        tools:layout="@layout/fragment_food_details" >
+        <argument
+            android:name="food_arg"
+            app:argType="com.imadev.foody.model.Food" />
+    </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.imadev.foody.ui.favorites.FavoritesFragment"
@@ -29,7 +36,11 @@
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.imadev.foody.ui.checkout.CartFragment"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/action_cartFragment_to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
+    </fragment>
     <fragment
         android:id="@+id/checkoutFragment"
         android:name="com.imadev.foody.ui.checkout.CheckoutFragment"
