@@ -2,13 +2,10 @@ package com.imadev.foody.ui.checkout
 
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
-import android.graphics.Canvas
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -34,7 +31,6 @@ class CartFragment : BaseFragment<FragmentCartBinding, CheckoutViewModel>() {
         super.onCreate(savedInstanceState)
 
         viewModel.cartList = FoodFactory.foodList()
-        Toast.makeText(requireContext(), "onCreate Triggered", Toast.LENGTH_SHORT).show()
 
     }
 
@@ -46,7 +42,6 @@ class CartFragment : BaseFragment<FragmentCartBinding, CheckoutViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as MainActivity).setToolbarTitle(R.string.cart)
 
         setSwipeAnimationIcon()
 
@@ -55,7 +50,7 @@ class CartFragment : BaseFragment<FragmentCartBinding, CheckoutViewModel>() {
 
         setRecyclerView(adapter)
 
-        adapter.addOnCountChanged { count ->
+        adapter.addOnCountChanged {
 
         }
 
@@ -67,6 +62,10 @@ class CartFragment : BaseFragment<FragmentCartBinding, CheckoutViewModel>() {
 
     }
 
+    override fun setToolbarTitle(activity: MainActivity) {
+        activity.setToolbarTitle(R.string.cart)
+    }
+
     private fun setRecyclerView(adapterR: CartAdapter) = binding.cartList.apply {
         adapter = adapterR
         ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(this)
@@ -76,17 +75,6 @@ class CartFragment : BaseFragment<FragmentCartBinding, CheckoutViewModel>() {
     private val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(
         0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
     ) {
-        override fun onChildDraw(
-            c: Canvas,
-            recyclerView: RecyclerView,
-            viewHolder: RecyclerView.ViewHolder,
-            dX: Float,
-            dY: Float,
-            actionState: Int,
-            isCurrentlyActive: Boolean
-        ) {
-            super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
-        }
 
         override fun onMove(
             recyclerView: RecyclerView,
@@ -97,22 +85,31 @@ class CartFragment : BaseFragment<FragmentCartBinding, CheckoutViewModel>() {
         }
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+
             val position = viewHolder.layoutPosition
             val food = viewModel.cartList[position]
             viewModel.cartList.remove(food)
             adapter.notifyItemRemoved(position)
 
-            Snackbar.make(requireView(), "Order successfully deleted", Snackbar.LENGTH_LONG).apply {
-                setAction("Undo") {
-                    viewModel.cartList.add(position,food)
+            Snackbar.make(
+                requireView(),
+                getString(R.string.order_delete_successfully),
+                Snackbar.LENGTH_LONG
+            ).apply {
+
+                setAction(getString(R.string.undo)) {
+                    viewModel.cartList.add(position, food)
                     adapter.notifyItemInserted(position)
                 }
+
                 show()
             }
         }
     }
 
+
     private fun setSwipeAnimationIcon() {
+
         val rotate = ObjectAnimator.ofFloat(binding.swipeIcon, "rotation", 10f, -40f)
 
         with(rotate) {

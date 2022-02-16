@@ -19,7 +19,6 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding, HistoryViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as MainActivity).setToolbarTitle(R.string.history)
     }
 
 
@@ -27,6 +26,11 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding, HistoryViewModel>()
         inflater: LayoutInflater,
         container: ViewGroup?
     ): FragmentHistoryBinding = FragmentHistoryBinding.inflate(inflater, container, false)
+
+
+    override fun setToolbarTitle(activity: MainActivity) {
+        activity.setToolbarTitle(R.string.history)
+    }
 
 
 }
