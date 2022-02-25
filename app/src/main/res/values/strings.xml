@@ -36,4 +36,5 @@
     <string name="undo">Undo</string>
     <string name="order_delete_successfully">Order successfully deleted</string>
     <string name="map">Map</string>
+    <string name="select_this_adress">Select this adress</string>
 </resources>
