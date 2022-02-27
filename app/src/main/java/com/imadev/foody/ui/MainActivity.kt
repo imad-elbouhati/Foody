@@ -81,4 +81,7 @@ class MainActivity : AppCompatActivity() {
 
     fun getToolbarIcon() = binding.toolbarIcon
 
+    fun getToolbar() = binding.toolbar
+
+
 }

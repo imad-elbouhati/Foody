@@ -18,6 +18,7 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding, HomeViewMod
 
     private var selected = false
 
+
     private var food: Food? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +41,6 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding, HomeViewMod
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as MainActivity).setToolbarTitle(R.string.food_details)
 
         with(binding) {
 
@@ -50,6 +50,12 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding, HomeViewMod
                 price.text = requireContext().getString(R.string.price, it.formattedPrice)
             }
         }
+    }
+
+
+
+    override fun setToolbarTitle(activity: MainActivity) {
+        activity.setToolbarTitle(R.string.food_details)
     }
 }
 

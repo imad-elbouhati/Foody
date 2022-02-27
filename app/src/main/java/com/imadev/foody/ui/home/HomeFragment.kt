@@ -26,13 +26,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
 
     override fun onResume() {
-        (activity as MainActivity).apply {
-            setToolbarTitle(R.string.home)
-            setToolbarIcon(R.drawable.ic_cart, false)
-            getToolbarIcon().setOnClickListener {
-                viewModel.navigate(R.id.action_homeFragment_to_cartFragment)
-            }
-        }
+        setToolbarTitle(activity as MainActivity)
         super.onResume()
     }
 
@@ -49,7 +43,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             setPadding(padding.toInt(), 0, 0, 0)
             adapter = foodAdapter
 
-            foodAdapter.setItemClickListener { food, i ->
+            foodAdapter.setItemClickListener { food, _ ->
 
                 viewModel.navigate(
                     R.id.action_homeFragment_to_foodDetailsFragment,
@@ -59,6 +53,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         }
 
 
+    }
+
+    override fun setToolbarTitle(activity: MainActivity) {
+        activity.apply {
+            setToolbarTitle(R.string.home)
+            setToolbarIcon(R.drawable.ic_cart, false)
+            getToolbarIcon().setOnClickListener {
+                viewModel.navigate(R.id.action_homeFragment_to_cartFragment)
+            }
+        }
     }
 
 

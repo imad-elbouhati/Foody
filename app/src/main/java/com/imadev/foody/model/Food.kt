@@ -3,6 +3,7 @@ package com.imadev.foody.model
 import android.os.Parcelable
 import com.imadev.foody.R
 import com.imadev.foody.utils.formatDecimal
+import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 
 
@@ -15,6 +16,7 @@ data class Food(
 ) : Parcelable {
 
 
+    @IgnoredOnParcel
     var formattedPrice: String = formatDecimal(price)
 
 
