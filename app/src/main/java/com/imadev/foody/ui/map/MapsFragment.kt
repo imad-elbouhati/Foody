@@ -96,8 +96,6 @@ class MapsFragment : BaseFragment<FragmentMapsBinding, MapsViewModel>(), OnMapRe
             }
         }
 
-
-
     }
 
 
