@@ -33,4 +33,11 @@
     <string name="total">Total</string>
     <string name="proceed_to_payment">Proceed to payment</string>
     <string name="cash_on_delivery">Cash on delivery</string>
+    <string name="ignore">Ignore</string>
+    <string name="your_phone_number">Your phone number</string>
+    <string name="next">Next</string>
+    <string name="or">Or</string>
+    <string name="sing_in_with_email">Sing in with email</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
 </resources>

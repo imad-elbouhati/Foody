@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F8"
+    tools:context=".ui.auth.LoginFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnIgnore"
+            android:layout_width="75dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="294dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="29dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="@color/foody_orange"
+            android:textColor="@color/white"
+            android:text="@string/ignore"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/imageView"
+
+            android:layout_width="374dp"
+            android:layout_height="207dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/foodd"
+            app:layout_constraintEnd_toEndOf="@+id/btnIgnore"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnIgnore" />
+
+        <EditText
+            android:id="@+id/editTextPhoneNumber"
+            android:layout_width="341dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/rounded_edittext"
+            android:drawableStart="@drawable/morocco_flag_ic"
+            android:drawablePadding="24dp"
+            android:hint="@string/your_phone_number"
+            android:inputType="phone"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/suivantBtn"
+            android:layout_width="341dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/black_rounded_edittext"
+            android:text="@string/next"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/editTextPhoneNumber"
+            app:layout_constraintStart_toStartOf="@+id/editTextPhoneNumber"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPhoneNumber" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="@+id/suivantBtn"
+            app:layout_constraintStart_toStartOf="@+id/suivantBtn"
+            app:layout_constraintTop_toBottomOf="@+id/suivantBtn">
+
+            <View
+                android:layout_width="150dp"
+                android:layout_height="1dp"
+                android:background="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="@string/or"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="150dp"
+                android:layout_height="1dp"
+                android:background="@color/black" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnContinueEmail"
+            android:layout_width="341dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_edittext"
+            android:drawableStart="@drawable/mail_ic"
+            android:drawableLeft="@drawable/mail_ic"
+            android:drawablePadding="20dp"
+            android:gravity="start|center_vertical"
+            android:paddingStart="19dp"
+            android:paddingLeft="19dp"
+            android:text="@string/sing_in_with_email"
+            android:textAllCaps="false"
+            android:textColor="#707070"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:ignore="RtlSymmetry" />
+
+        <LinearLayout
+            android:id="@+id/socialLinearLayout"
+            android:layout_width="341dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:padding="3dp"
+            app:layout_constraintEnd_toEndOf="@+id/btnContinueEmail"
+            app:layout_constraintStart_toStartOf="@+id/btnContinueEmail"
+            app:layout_constraintTop_toBottomOf="@+id/btnContinueEmail">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/facebook_sign_in_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2.5dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_button"
+                android:drawableLeft="@drawable/facebook_circular_ic"
+                android:drawablePadding="18dp"
+                android:gravity="start|center_vertical"
+                android:paddingStart="10dp"
+                android:text="@string/facebook"
+                android:textAllCaps="false"
+                android:textColor="#707070"
+                android:textSize="18sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/google_sign_in_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2.5dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_button"
+                android:drawableLeft="@drawable/google_ic"
+                android:drawablePadding="18dp"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="10dp"
+                android:text="@string/google"
+                android:textAllCaps="false"
+                android:textColor="#707070"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/socialLinearLayout"
+            app:layout_constraintStart_toStartOf="@+id/socialLinearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/socialLinearLayout">
+
+            <TextView
+                android:id="@+id/cguTextView"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                />
+
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar3"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.529" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
