@@ -7,10 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.imadev.foody.R
 import com.imadev.foody.databinding.FragmentFoodDetailsBinding
-import com.imadev.foody.model.Food
+import com.imadev.foody.model.Meal
 import com.imadev.foody.ui.common.BaseFragment
 import com.imadev.foody.ui.home.HomeViewModel
-import com.imadev.foody.utils.Constants.Companion.FOOD_ARG
+import com.imadev.foody.utils.Constants.Companion.MEAL_ARG
+import com.imadev.foody.utils.loadFromUrl
 
 class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding, HomeViewModel>() {
 
@@ -19,14 +20,14 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding, HomeViewMod
     private var selected = false
 
 
-    private var food: Food? = null
+    private var meal: Meal? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         arguments.let { args ->
             args?.let { bundle ->
-                food = bundle.getParcelable(FOOD_ARG)
+                meal = bundle.getParcelable(MEAL_ARG)
             }
         }
 
@@ -44,10 +45,11 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding, HomeViewMod
 
         with(binding) {
 
-            food?.let {
-                foodImg.setImageResource(it.image)
-                foodTitle.text = it.title
-                price.text = requireContext().getString(R.string.price, it.formattedPrice)
+            meal?.let {
+                foodImg.loadFromUrl(requireContext(),meal?.image)
+                foodTitle.text = it.name
+                price.text = requireContext().getString(R.string.price, it.price.toString())
+                description.text = it.ingredient.joinToString(separator = "\n")
             }
         }
     }

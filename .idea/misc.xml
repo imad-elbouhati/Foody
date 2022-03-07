@@ -34,7 +34,12 @@
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/layout/item_row_food_hom.xml" value="0.25" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/layout/item_row_order_layout.xml" value="0.33" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.1" />
+        <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/drawable/ic_cart.xml" value="0.1845" />
+        <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/fragment_food_details.xml" value="0.12454710144927536" />
+        <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/fragment_home.xml" value="0.12454710144927536" />
         <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/fragment_maps.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/item_row_food_hom.xml" value="0.18" />
       </map>
     </option>
   </component>

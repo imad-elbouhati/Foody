@@ -33,9 +33,7 @@
             app:layout_constraintGuide_percent=".07" />
 
 
-
-
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/food_img"
             android:layout_width="241dp"
             android:layout_height="241dp"
@@ -44,8 +42,7 @@
             android:src="@drawable/foodd"
             app:layout_constraintEnd_toStartOf="@+id/right_guideline"
             app:layout_constraintStart_toStartOf="@+id/left_guideline"
-            app:layout_constraintTop_toTopOf="parent"
-             />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
@@ -67,13 +64,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            tools:text="180 DH"
             android:textColor="@color/foody_orange"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/food_title"
             app:layout_constraintStart_toStartOf="@+id/food_title"
-            app:layout_constraintTop_toBottomOf="@+id/food_title" />
+            app:layout_constraintTop_toBottomOf="@+id/food_title"
+            tools:text="180 DH" />
 
         <TextView
             android:id="@+id/description_tv"
@@ -105,12 +102,12 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_marginTop="50dp"
+            android:layout_marginBottom="40dp"
             android:background="@drawable/rounded_button"
             android:text="@string/add_to_cart"
             android:textAllCaps="false"
             android:textSize="17sp"
             android:textStyle="bold"
-            android:layout_marginBottom="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/right_guideline"
             app:layout_constraintStart_toStartOf="@+id/left_guideline"
