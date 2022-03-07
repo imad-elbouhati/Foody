@@ -13,9 +13,11 @@ import com.google.android.material.snackbar.Snackbar
 import com.imadev.foody.R
 import com.imadev.foody.adapter.CartAdapter
 import com.imadev.foody.databinding.FragmentCartBinding
-import com.imadev.foody.factory.FoodFactory
+import com.imadev.foody.model.Meal
 import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.ui.common.BaseFragment
+import com.imadev.foody.utils.hide
+import com.imadev.foody.utils.show
 
 
 private const val TAG = "CartFragment"
@@ -30,7 +32,8 @@ class CartFragment : BaseFragment<FragmentCartBinding, CheckoutViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel.cartList = FoodFactory.foodList()
+        //  viewModel.cartList = FoodFactory.foodList()
+        viewModel.observeQuantity()
 
     }
 
@@ -46,12 +49,30 @@ class CartFragment : BaseFragment<FragmentCartBinding, CheckoutViewModel>() {
         setSwipeAnimationIcon()
 
 
-        adapter = CartAdapter(viewModel.cartList)
+        adapter = CartAdapter(viewModel.cartList as MutableList<Meal>)
+
+
+        viewModel.cartIsEmpty.observe(viewLifecycleOwner) { isEmpty ->
+            if (isEmpty) {
+                binding.emptyCart.show()
+                binding.constraint.hide()
+            } else {
+                binding.emptyCart.hide()
+                binding.constraint.show()
+            }
+        }
+
+
 
         setRecyclerView(adapter)
 
-        adapter.addOnCountChanged {
 
+        viewModel.canProceedToPayment.observe(viewLifecycleOwner) {
+            binding.completeOrderBtn.isEnabled = it
+        }
+
+        adapter.addOnCountChanged {
+            viewModel.observeQuantity()
         }
 
 
@@ -87,8 +108,8 @@ class CartFragment : BaseFragment<FragmentCartBinding, CheckoutViewModel>() {
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
 
             val position = viewHolder.layoutPosition
-            val food = viewModel.cartList[position]
-            viewModel.cartList.remove(food)
+            val meal = viewModel.cartList[position]
+            viewModel.removeFromCart(meal)
             adapter.notifyItemRemoved(position)
 
             Snackbar.make(
@@ -98,7 +119,7 @@ class CartFragment : BaseFragment<FragmentCartBinding, CheckoutViewModel>() {
             ).apply {
 
                 setAction(getString(R.string.undo)) {
-                    viewModel.cartList.add(position, food)
+                    viewModel.addToCart(meal, position)
                     adapter.notifyItemInserted(position)
                 }
 

@@ -12,5 +12,6 @@
     <color name="foody_gray">#9A9A9D</color>
     <color name="foody_background">#F5F5F8</color>
     <color name="item_color_inactive">#ADADAF</color>
+    <color name="foody_green">#52C41A</color>
 
 </resources>
