@@ -45,4 +45,8 @@
         android:id="@+id/checkoutFragment"
         android:name="com.imadev.foody.ui.checkout.CheckoutFragment"
         tools:layout="@layout/fragment_checkout" />
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.imadev.foody.ui.map.MapsFragment"
+        tools:layout="@layout/fragment_maps" />
 </navigation>

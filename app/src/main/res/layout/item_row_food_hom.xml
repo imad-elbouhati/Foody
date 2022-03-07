@@ -13,22 +13,23 @@
         android:layout_height="match_parent"
         >
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/food_img"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
             android:contentDescription="@string/food_image"
             android:src="@drawable/foodd"
-            android:translationZ="90dp" />
+             />
 
         <TextView
             android:id="@+id/food_title"
             android:layout_width="125dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_below="@+id/food_img"
             android:layout_centerHorizontal="true"
+            android:gravity="center"
             android:text="Veggie tomato mix"
             android:textAlignment="center"
             android:textColor="@color/black"
@@ -43,6 +44,7 @@
             android:layout_below="@+id/food_title"
             android:layout_centerHorizontal="true"
             android:text="110 MAD"
+            android:layout_marginTop="5dp"
             android:textAlignment="center"
             android:textColor="@color/foody_orange"
             android:textSize="18sp"

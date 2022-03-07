@@ -28,7 +28,6 @@ class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CheckoutViewModel
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as MainActivity).setToolbarTitle(R.string.checkout)
 
         client = Client()
 
@@ -38,7 +37,7 @@ class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CheckoutViewModel
             phone.text = client.phone
 
 
-            total.text = requireContext().resources.getString(R.string.price, getTotal())
+            total.text = requireContext().resources.getString(R.string.price,viewModel.getTotal())
 
         }
 
@@ -55,9 +54,12 @@ class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CheckoutViewModel
         }
     }
 
+    override fun setToolbarTitle(activity: MainActivity) {
+        activity.setToolbarTitle(R.string.checkout)
 
-    private fun getTotal(): String {
-        return formatDecimal(viewModel.cartList.sumOf { it.quantity * it.price })
     }
+
+
+
 
 }

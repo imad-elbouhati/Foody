@@ -9,6 +9,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
+import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.utils.NavigationCommand
 
 abstract class BaseFragment<V : ViewBinding, VM : BaseViewModel> : Fragment() {
@@ -20,6 +21,10 @@ abstract class BaseFragment<V : ViewBinding, VM : BaseViewModel> : Fragment() {
     private var _binding: V? = null
     protected val binding get() = _binding!!
 
+
+    abstract fun createViewBinding(inflater: LayoutInflater, container: ViewGroup?): V
+
+    abstract fun setToolbarTitle(activity: MainActivity)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,7 +39,6 @@ abstract class BaseFragment<V : ViewBinding, VM : BaseViewModel> : Fragment() {
         return binding.root
     }
 
-    abstract fun createViewBinding(inflater: LayoutInflater, container: ViewGroup?): V
 
 
     private fun observeNavigation() {
@@ -46,7 +50,7 @@ abstract class BaseFragment<V : ViewBinding, VM : BaseViewModel> : Fragment() {
         }
     }
 
-    fun <T> LiveData<T>.observeNonNull(owner: LifecycleOwner, observer: (t: T) -> Unit) {
+    private fun <T> LiveData<T>.observeNonNull(owner: LifecycleOwner, observer: (t: T) -> Unit) {
         this.observe(
             owner
         ) {
@@ -63,10 +67,14 @@ abstract class BaseFragment<V : ViewBinding, VM : BaseViewModel> : Fragment() {
     }
 
 
+
+
     override fun onDestroy() {
         _binding = null
         super.onDestroy()
     }
+
+
 }
 
 
