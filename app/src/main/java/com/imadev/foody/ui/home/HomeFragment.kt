@@ -33,7 +33,7 @@ private const val TAG = "HomeFragment"
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
     override val viewModel: HomeViewModel by viewModels()
-    val cartViewModel: CheckoutViewModel by activityViewModels()
+    private val cartViewModel: CheckoutViewModel by activityViewModels()
 
     private var mealsJob: Job? = null
 
@@ -48,6 +48,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override fun onResume() {
         setToolbarTitle(activity as MainActivity)
         updateCartCounter()
+
+
 
         super.onResume()
     }
@@ -95,8 +97,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     private fun clickListeners() {
         binding.categoryTabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                Log.d(TAG, "onTabSelected: ${(tab?.tag as Category)}")
-                val categoryID = (tab.tag as Category).id
+                val categoryID = (tab?.tag as Category).id
                 getMealsByCategory(categoryID)
             }
 

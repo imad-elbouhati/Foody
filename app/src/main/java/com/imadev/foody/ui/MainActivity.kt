@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         binding.navView.setupWithNavController(navController)
 
 
-        //val viewModel = ViewModelProvider(this)[GenerateFoodViewModel::class.java]
+        val viewModel = ViewModelProvider(this)[GenerateFoodViewModel::class.java]
 
 
     }

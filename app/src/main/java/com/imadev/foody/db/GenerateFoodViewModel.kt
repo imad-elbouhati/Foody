@@ -65,22 +65,21 @@ class GenerateFoodViewModel : ViewModel() {
     }
 
 
+    init {
+        insertMeal()
+    }
+
     private fun insertMeal() {
-        val img = "https://firebasestorage.googleapis.com/v0/b/foody-341522.appspot.com/o/images%2Fimages%2Fbrochettes%20de%20poulet.jpg?alt=media&token=3c615edb-1ef2-467e-8211-f9d9b7666091"
-        val name = "Chicken brochettes"
+        val img = "https://firebasestorage.googleapis.com/v0/b/foody-341522.appspot.com/o/images%2Fimages%2Fraspberry%20juice.jpg?alt=media&token=895cb43e-579e-406e-bf89-490991eec74b"
+        val name = "Raspberry Juice"
         val ingredient = listOf(
-            "1 cup plain nonfat yogurt",
-            "5 tablespoons (packed) crumbled feta cheese",
-            "2 teaspoons minced garlic",
-            "1 teaspoon chopped fresh rosemary",
-            "1/4 teaspoon pepper",
-            "1 1/2 pounds skinless boneless chicken breast halves, cut into 1-inch\u00a0pieces",
-            "2 large red bell peppers, cut into 1-inch pieces",
-            "6 10- to 12-inch-long wooden skewers, soaked in water 30 minutes"
+            "Raspberry",
+            "Mint",
+            "Sugar",
         )
 
-        val catID = "rEFPNmJmVjmlIiNNjb0P"
-        val price = 150.0
+        val catID = "iD36M7qgm9uHPMZ3Mb2q"
+        val price = 45.0
 
         val meal = Meal(
             name = name,
