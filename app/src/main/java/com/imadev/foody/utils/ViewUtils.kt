@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.annotation.ColorInt
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
+import com.imadev.foody.ui.MainActivity
 
 
 fun View.hide(invisible: Boolean = false) {
@@ -49,5 +50,6 @@ fun Snackbar.setIcon(drawable: Drawable, @ColorInt colorTint: Int): Snackbar {
         textView.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
     }
 }
+
 
 

@@ -39,4 +39,5 @@
     <string name="select_this_adress">Select this adress</string>
     <string name="empty_cart">Empty cart</string>
     <string name="no_item_added_to_cart_yet">No item added to cart yet</string>
+    <string name="search">Search</string>
 </resources>

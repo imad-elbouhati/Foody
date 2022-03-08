@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_homeFragment_to_cartFragment"
             app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/foodDetailsFragment"
@@ -49,4 +52,8 @@
         android:id="@+id/mapsFragment"
         android:name="com.imadev.foody.ui.map.MapsFragment"
         tools:layout="@layout/fragment_maps" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.imadev.foody.ui.home.SearchFragment"
+        tools:layout="@layout/fragment_search" />
 </navigation>

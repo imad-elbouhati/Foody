@@ -43,6 +43,7 @@
         <SearchView
             android:id="@+id/search_view"
             android:layout_width="0dp"
+            android:transitionName="home_search_view_trans"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:background="@drawable/rounded_search_view"

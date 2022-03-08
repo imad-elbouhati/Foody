@@ -10,6 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayout
 import com.imadev.foody.R
 import com.imadev.foody.adapter.MealListHomeAdapter
@@ -32,7 +34,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
     private var mealsJob: Job? = null
 
-    private var mealAdapter:MealListHomeAdapter?=null
+    private var mealAdapter: MealListHomeAdapter? = null
 
     override fun createViewBinding(
         inflater: LayoutInflater,
@@ -62,6 +64,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
         observeSubscribers()
         clickListeners()
+
+        binding.searchView.setOnClickListener {
+            val extras = FragmentNavigatorExtras(
+                binding.searchView to "search_view_trans"
+            )
+
+            findNavController().navigate(
+                R.id.action_homeFragment_to_searchFragment,
+                null,
+                null,
+                extras
+            )
+        }
+
     }
 
     private fun clickListeners() {
@@ -128,12 +144,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                     val data = it.data
                     when (it) {
                         is Resource.Loading -> {
-                            Log.d(TAG, "observeSubscribers: Loading...")
                             (activity as MainActivity).showProgressBar()
                         }
                         is Resource.Success -> {
                             (activity as MainActivity).hideProgressBar()
-                            Log.d(TAG, "onViewCreated: ${data.toString()}")
 
                             data?.reversed()?.forEach { category ->
                                 val newTab = binding.categoryTabs.newTab().apply {
