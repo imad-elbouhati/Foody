@@ -72,6 +72,7 @@
             app:layout_constraintTop_toBottomOf="@+id/food_title"
             tools:text="180 DH" />
 
+
         <TextView
             android:id="@+id/description_tv"
             android:layout_width="0dp"

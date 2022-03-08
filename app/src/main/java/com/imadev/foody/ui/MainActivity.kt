@@ -12,6 +12,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.viewbinding.ViewBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.imadev.foody.R
@@ -82,15 +83,20 @@ class MainActivity : AppCompatActivity() {
     fun setToolbarIcon(@DrawableRes icon: Int, hide: Boolean = false) {
 
         if (hide) {
-            binding.toolbarIcon.hide()
+            binding.bubbleCart.hide()
             return
         }
-        binding.toolbarIcon.setImageResource(icon)
-        binding.toolbarIcon.show()
+        binding.bubbleCart.toolbarIcon.setImageResource(icon)
+        binding.bubbleCart.show()
+
+
     }
 
 
-    fun getToolbarIcon() = binding.toolbarIcon
+    fun getBubbleCart() = binding.bubbleCart
+
+
+    fun getToolbarIcon() = binding.bubbleCart.toolbarIcon
 
     fun getToolbar() = binding.toolbar
 
@@ -102,4 +108,11 @@ class MainActivity : AppCompatActivity() {
         binding.progressBar.hide()
     }
 
+}
+
+private fun ViewBinding.show() {
+    this.root.show()
+}
+private fun ViewBinding.hide() {
+    this.root.hide()
 }
