@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:padding="8dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/food_img"
             android:layout_width="100dp"
             android:layout_height="100dp"

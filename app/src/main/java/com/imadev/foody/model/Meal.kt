@@ -17,12 +17,13 @@ data class Meal(
     var image: String? = null,
     var favorite: Boolean = false,
     var categoryId: String? = null,
+    var quantity: Int = 0
 ) : Parcelable {
     @Suppress("unused")
-    constructor() : this("", "", 0.0, listOf(), "", false, "")
+    constructor() : this("", "", 0.0, listOf(), "", false, "", 0)
 
     @IgnoredOnParcel
     @Exclude
-    var formattedPrice: String = formatDecimal(price)
+    private var formattedPrice: String = formatDecimal(price)
 
 }

@@ -72,6 +72,7 @@
             app:layout_constraintTop_toBottomOf="@+id/food_title"
             tools:text="180 DH" />
 
+
         <TextView
             android:id="@+id/description_tv"
             android:layout_width="0dp"
@@ -99,6 +100,7 @@
 
 
         <Button
+            android:id="@+id/add_to_cart_button"
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_marginTop="50dp"

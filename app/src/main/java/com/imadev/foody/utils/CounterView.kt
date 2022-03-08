@@ -7,10 +7,11 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import com.imadev.foody.R
 import com.imadev.foody.model.Food
+import com.imadev.foody.model.Meal
 
 class CounterView(context: Context, attrs: AttributeSet) : RelativeLayout(context, attrs) {
 
-    var food: Food? = null
+    var meal: Meal? = null
     private val plus: ImageView
     private val minus: ImageView
     private val quantityTv: TextView
@@ -37,15 +38,15 @@ class CounterView(context: Context, attrs: AttributeSet) : RelativeLayout(contex
 
     private fun setClickListeners() {
 
-        food?.let {
+        meal?.let {
 
-            plus.setOnClickListener { v ->
+            plus.setOnClickListener { _ ->
                 it.quantity += 1
                 quantityTv.text = it.quantity.toString()
                 onCountChangeListener?.onCountChange(it.quantity)
             }
 
-            minus.setOnClickListener { v ->
+            minus.setOnClickListener { _ ->
                 if (it.quantity > 0) {
                     it.quantity -= 1
                     setQuantity(it.quantity)
@@ -67,14 +68,14 @@ class CounterView(context: Context, attrs: AttributeSet) : RelativeLayout(contex
 
 
     fun setQuantity(value: Int) {
-        food?.quantity = value
+        meal?.quantity = value
         quantityTv.text = value.toString()
     }
 
 
 
-    fun setFoodModel(model: Food) {
-        this.food = model
+    fun setFoodModel(model: Meal) {
+        this.meal = model
         setClickListeners()
     }
 

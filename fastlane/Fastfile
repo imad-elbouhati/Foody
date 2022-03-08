@@ -36,6 +36,8 @@ platform :android do
     upload_to_play_store
   end
   
+
+
   desc "Submit a new beta build to Firebase App Distribution"
     lane :distribute do
         build_android_app(
@@ -43,9 +45,10 @@ platform :android do
           build_type: "debug"
         )
         firebase_app_distribution(
-            app: "foody-341522",
-            testers: "dohalefhal4@gmail.com",
-            firebase_cli_token: "1//03TMOjkvP9PPSCgYIARAAGAMSNwF-L9IrYiOQdO5TB_5adccXXYyR6yS9_vMiQ6g6B9-jpgXmVeBou16yQcDkqbuYG_VTDQ0yZlw"
+            app: "1:392557441259:android:5ad2893b6bba892aaaceae",
+            testers: "dohalefhal4@gmail.com,elbouhatiimad@gmail.com",
+            firebase_cli_token: "1//03f_87Ru6CS5NCgYIARAAGAMSNwF-L9IrPj638N-RetT1r77CY7yS2EkBEJwmgWjTNTbBTcp4bnOFs7UZoDd4_bTJwuD36RnP9MI"
         )
-   end
+    end
+
 end
