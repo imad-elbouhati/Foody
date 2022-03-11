@@ -1,7 +1,7 @@
 package com.imadev.foody.model
 
 class Client(
-    val username: String = "Imad El Bouhati",
-    val address: String = "Hay Al Andalouss N 44 Tiflet",
-    val phone: String = "+212 62524710"
+    val username: String = "Doha lefhal",
+    val address: String = "Rue jrada hay amal karia salé",
+    val phone: String = "+212 623267604"
 )

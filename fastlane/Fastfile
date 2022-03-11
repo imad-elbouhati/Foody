@@ -36,8 +36,8 @@ platform :android do
     upload_to_play_store
   end
   
-  
-  
+
+
   desc "Submit a new beta build to Firebase App Distribution"
     lane :distribute do
         build_android_app(
@@ -50,5 +50,5 @@ platform :android do
             firebase_cli_token: "1//03f_87Ru6CS5NCgYIARAAGAMSNwF-L9IrPj638N-RetT1r77CY7yS2EkBEJwmgWjTNTbBTcp4bnOFs7UZoDd4_bTJwuD36RnP9MI"
         )
     end
-  
+
 end
