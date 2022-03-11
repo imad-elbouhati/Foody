@@ -20,7 +20,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:contentDescription="@string/food_image"
-            android:src="@drawable/foodd"
+            android:src="@drawable/ic_launcher_background"
              />
 
         <TextView

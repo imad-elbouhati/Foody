@@ -39,7 +39,7 @@
             android:layout_height="241dp"
             android:layout_marginTop="16dp"
             android:contentDescription="@string/food_image"
-            android:src="@drawable/foodd"
+            android:src="@drawable/ic_launcher_background"
             app:layout_constraintEnd_toStartOf="@+id/right_guideline"
             app:layout_constraintStart_toStartOf="@+id/left_guideline"
             app:layout_constraintTop_toTopOf="parent" />

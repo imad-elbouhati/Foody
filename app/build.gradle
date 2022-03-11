@@ -80,4 +80,8 @@ dependencies {
 
 
 
+    implementation 'io.github.chaosleung:pinview:1.4.4'
+
+
+
 }
