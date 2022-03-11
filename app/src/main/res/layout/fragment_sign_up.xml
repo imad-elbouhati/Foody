@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".views.auth.SignUpFragment">
+
+        <View
+            android:id="@+id/curved_header"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:background="@drawable/curved_custom_view" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/sign_up_ic" />
+
+        
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="366dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/curved_header"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:hint="@string/your_name"
+            android:focusable="true"
+
+        
+            tools:ignore="MissingClass" />
+
+        
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="366dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/username"
+           android:hint="@string/adress"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+
+             />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="366dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/email"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+           android:hint="@string/phone_number"
+
+
+             />
+
+        <EditText
+            android:id="@+id/phoneNumber"
+            android:layout_width="366dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:visibility="gone"
+
+             />
+
+        <ImageButton
+            android:id="@+id/nextButton"
+            android:layout_width="366dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/phoneNumber"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="90dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/green_rounded_button"
+            android:src="@drawable/ic_baseline_arrow_forward_24" />
+
+        <ProgressBar
+            android:id="@+id/progressBar8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+</ScrollView>

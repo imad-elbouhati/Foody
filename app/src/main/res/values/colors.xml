@@ -7,7 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
+    <color name="custom_gray">#333333</color>
     <color name="foody_orange">#FA4A0C</color>
     <color name="foody_gray">#9A9A9D</color>
     <color name="foody_background">#F5F5F8</color>
