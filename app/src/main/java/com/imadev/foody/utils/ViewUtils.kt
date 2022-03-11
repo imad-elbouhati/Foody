@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.ColorInt
+import androidx.viewbinding.ViewBinding
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import com.imadev.foody.ui.MainActivity
@@ -53,3 +54,9 @@ fun Snackbar.setIcon(drawable: Drawable, @ColorInt colorTint: Int): Snackbar {
 
 
 
+fun ViewBinding.show() {
+    this.root.show()
+}
+fun ViewBinding.hide() {
+    this.root.hide()
+}

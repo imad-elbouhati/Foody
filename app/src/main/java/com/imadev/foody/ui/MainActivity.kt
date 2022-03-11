@@ -110,9 +110,3 @@ class MainActivity : AppCompatActivity() {
 
 }
 
-private fun ViewBinding.show() {
-    this.root.show()
-}
-private fun ViewBinding.hide() {
-    this.root.hide()
-}
