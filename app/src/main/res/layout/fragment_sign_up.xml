@@ -35,7 +35,7 @@
             android:layout_marginTop="30dp"
             android:hint="@string/your_name"
             android:focusable="true"
-            app:inputType="text"
+
         
             tools:ignore="MissingClass" />
 
@@ -49,8 +49,8 @@
            android:hint="@string/adress"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            app:inputType="textEmailAddress"
-            app:textTitle="@string/email" />
+
+             />
 
         <EditText
             android:id="@+id/password"
@@ -60,9 +60,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
            android:hint="@string/phone_number"
-            app:drawableRight="@drawable/lock_ic"
-            app:inputType="textPassword"
-            app:textTitle="@string/pin_code" />
+
+
+             />
 
         <EditText
             android:id="@+id/phoneNumber"
@@ -72,8 +72,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:visibility="gone"
-            app:inputType="phone"
-            app:textTitle="@string/phone_number" />
+
+             />
 
         <ImageButton
             android:id="@+id/nextButton"
