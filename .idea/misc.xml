@@ -3,8 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Foody/app/src/main/res/drawable-hdpi/black_rounded_edittext.xml" value="0.157" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Foody/app/src/main/res/drawable-v24/ic_heart_selected.xml" value="0.159" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Foody/app/src/main/res/drawable-v24/rounded_edittext.xml" value="0.1595" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_login.xml" value="0.23777173913043478" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Foody/app/src/main/res/drawable/cursor_drawable.xml" value="0.157" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Foody/app/src/main/res/drawable/dashed.xml" value="0.157" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Foody/app/src/main/res/drawable/error_edit_text_bg.xml" value="0.157" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Foody/app/src/main/res/drawable/ic_arrow_back.xml" value="0.1105" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Foody/app/src/main/res/drawable/ic_launcher_background.xml" value="0.157" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Foody/app/src/main/res/drawable/line_drawable.xml" value="0.157" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_login.xml" value="0.37656903765690375" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Foody/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.157" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Foody/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.157" />
+        <entry key="..\:/Users/doha/AndroidStudioProjects/Foody/app/src/main/res/drawable-xxxhdpi/curved_custom_view.xml" value="0.1785" />
+        <entry key="..\:/Users/doha/AndroidStudioProjects/Foody/app/src/main/res/drawable-xxxhdpi/green_rounded_button.xml" value="0.1785" />
+        <entry key="..\:/Users/doha/AndroidStudioProjects/Foody/app/src/main/res/drawable-xxxhdpi/ic_baseline_arrow_forward_24.xml" value="0.1785" />
+        <entry key="..\:/Users/doha/AndroidStudioProjects/Foody/app/src/main/res/drawable/rounded_button.xml" value="0.1745" />
+        <entry key="..\:/Users/doha/AndroidStudioProjects/Foody/app/src/main/res/drawable/rounded_search_view.xml" value="0.1785" />
+        <entry key="..\:/Users/doha/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_blank.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/doha/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_cart.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/doha/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_checkout.xml" value="0.22" />
+        <entry key="..\:/Users/doha/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_favorites.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/doha/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_home.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/doha/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_login.xml" value="0.22" />
+        <entry key="..\:/Users/doha/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_o_t_p.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/doha/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_sign_up.xml" value="0.22" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/drawable-v24/ic_heart_selected.xml" value="0.152" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/drawable/bottom_nav_icon_selector.xml" value="0.1935" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/drawable/cursor_drawable.xml" value="0.142" />
@@ -31,12 +54,10 @@
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_food_details.xml" value="0.18" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_history.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_home.xml" value="0.22" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_maps.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_user.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/layout/item_row_food_hom.xml" value="0.25" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/layout/item_row_order_layout.xml" value="0.33" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Foody/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.1" />
-        <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/fragment_maps.xml" value="0.17481884057971014" />
       </map>
     </option>
   </component>

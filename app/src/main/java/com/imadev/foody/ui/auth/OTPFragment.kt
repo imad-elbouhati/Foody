@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import com.imadev.foody.R
 import com.imadev.foody.databinding.FragmentLoginBinding
 import com.imadev.foody.databinding.FragmentOTPBinding
+import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.ui.common.BaseFragment
 
 
@@ -20,6 +21,10 @@ class OTPFragment :  BaseFragment<FragmentOTPBinding, AuthViewModel>() {
         inflater: LayoutInflater,
         container: ViewGroup?
     ): FragmentOTPBinding = FragmentOTPBinding.inflate(layoutInflater, container, false)
+
+    override fun setToolbarTitle(activity: MainActivity) {
+        TODO("Not yet implemented")
+    }
 
 
 }

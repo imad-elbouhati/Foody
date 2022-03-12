@@ -10,42 +10,55 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".9" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnIgnore"
             android:layout_width="75dp"
             android:layout_height="37dp"
-            android:layout_marginStart="294dp"
+
             android:layout_marginTop="15dp"
-            android:layout_marginEnd="29dp"
+
             android:background="@drawable/rounded_button"
             android:backgroundTint="@color/foody_orange"
             android:textColor="@color/white"
             android:text="@string/ignore"
             android:textAllCaps="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/right_guideline"
+
             app:layout_constraintTop_toTopOf="parent" />
 
 
         <ImageView
             android:id="@+id/imageView"
 
-            android:layout_width="374dp"
+            android:layout_width="0dp"
             android:layout_height="207dp"
             android:layout_marginTop="16dp"
             android:src="@drawable/foodd"
-            app:layout_constraintEnd_toEndOf="@+id/btnIgnore"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/right_guideline"
+
+            app:layout_constraintStart_toStartOf="@+id/left_guideline"
             app:layout_constraintTop_toBottomOf="@+id/btnIgnore" />
 
         <EditText
             android:id="@+id/editTextPhoneNumber"
-            android:layout_width="341dp"
+            android:layout_width="0dp"
             android:layout_height="53dp"
             android:layout_marginTop="28dp"
-            android:background="@drawable/rounded_edittext"
+            android:background="@drawable/rounded_search_view"
             android:drawableStart="@drawable/morocco_flag_ic"
             android:drawablePadding="24dp"
             android:hint="@string/your_phone_number"
@@ -58,11 +71,13 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/suivantBtn"
-            android:layout_width="341dp"
+            android:layout_width="0dp"
             android:layout_height="53dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/black_rounded_edittext"
+            android:background="@drawable/rounded_search_view"
             android:text="@string/next"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/foody_orange"
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/editTextPhoneNumber"
@@ -99,58 +114,42 @@
                 android:background="@color/black" />
         </LinearLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnContinueEmail"
-            android:layout_width="341dp"
-            android:layout_height="53dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/rounded_edittext"
-            android:drawableStart="@drawable/mail_ic"
-            android:drawableLeft="@drawable/mail_ic"
-            android:drawablePadding="20dp"
-            android:gravity="start|center_vertical"
-            android:paddingStart="19dp"
-            android:paddingLeft="19dp"
-            android:text="@string/sing_in_with_email"
-            android:textAllCaps="false"
-            android:textColor="#707070"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            tools:ignore="RtlSymmetry" />
+
 
         <LinearLayout
             android:id="@+id/socialLinearLayout"
-            android:layout_width="341dp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
-            android:padding="3dp"
-            app:layout_constraintEnd_toEndOf="@+id/btnContinueEmail"
-            app:layout_constraintStart_toStartOf="@+id/btnContinueEmail"
-            app:layout_constraintTop_toBottomOf="@+id/btnContinueEmail">
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/facebook_sign_in_btn"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginEnd="2.5dp"
                 android:layout_weight="1"
+
                 android:background="@drawable/rounded_button"
-                android:drawableLeft="@drawable/facebook_circular_ic"
+                android:drawableLeft="@drawable/facebook"
                 android:drawablePadding="18dp"
                 android:gravity="start|center_vertical"
                 android:paddingStart="10dp"
                 android:text="@string/facebook"
+
                 android:textAllCaps="false"
-                android:textColor="#707070"
+                android:textColor="@color/black"
+
                 android:textSize="18sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/google_sign_in_btn"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginStart="2.5dp"
                 android:layout_weight="1"
                 android:background="@drawable/rounded_button"
@@ -159,8 +158,9 @@
                 android:gravity="start|center_vertical"
                 android:paddingLeft="10dp"
                 android:text="@string/google"
+
                 android:textAllCaps="false"
-                android:textColor="#707070"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -177,8 +177,7 @@
                 android:id="@+id/cguTextView"
                 android:layout_width="365dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                />
+                android:gravity="center" />
 
         </RelativeLayout>
 
