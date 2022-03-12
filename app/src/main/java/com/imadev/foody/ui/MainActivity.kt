@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         binding.navView.setupWithNavController(navController)
 
 
-        val viewModel = ViewModelProvider(this)[GenerateFoodViewModel::class.java]
+       // val viewModel = ViewModelProvider(this)[GenerateFoodViewModel::class.java]
 
 
     }
@@ -101,10 +101,12 @@ class MainActivity : AppCompatActivity() {
     fun getToolbar() = binding.toolbar
 
     fun showProgressBar() {
+        Log.d(TAG, "showProgressBar: show")
         binding.progressBar.show()
     }
 
     fun hideProgressBar() {
+        Log.d(TAG, "hideProgressBar: hide")
         binding.progressBar.hide()
     }
 

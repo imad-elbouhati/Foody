@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:background="@color/foody_background"
             android:paddingBottom="50dp"
+            tools:visibility="visible"
             android:visibility="gone">
 
             <androidx.constraintlayout.widget.Guideline
@@ -105,7 +106,7 @@
             app:layout_constraintEnd_toEndOf="@+id/right_guideline"
             app:layout_constraintStart_toStartOf="@+id/left_guideline"
             app:layout_constraintTop_toBottomOf="@+id/holder"
-            tools:visibility="visible">
+            tools:visibility="gone">
 
             <ImageView
                 android:id="@+id/cart_ic"
