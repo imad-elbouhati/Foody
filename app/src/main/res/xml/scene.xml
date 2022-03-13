@@ -20,8 +20,9 @@
         motion:constraintSetStart="@+id/start"
         motion:duration="250"
         motion:motionInterpolator="linear">
-
         <OnClick motion:targetId="@+id/menu_ic" />
+
+
 
     </Transition>
     <ConstraintSet android:id="@+id/start">
@@ -45,8 +46,17 @@
             motion:layout_constraintTop_toTopOf="parent">
             <CustomAttribute
                 motion:attributeName="backgroundColor"
-                motion:customColorValue="@color/foody_background"/>
+                motion:customColorValue="@color/foody_background" />
         </Constraint>
+        <Constraint
+            android:id="@+id/sign_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="80dp"
+            android:layout_marginStart="20dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
@@ -74,5 +84,14 @@
                 motion:attributeName="backgroundColor"
                 motion:customColorValue="@color/foody_orange" />
         </Constraint>
+        <Constraint
+            android:id="@+id/sign_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="80dp"
+            android:layout_marginStart="20dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:visibility="visible" />
     </ConstraintSet>
 </MotionScene>
