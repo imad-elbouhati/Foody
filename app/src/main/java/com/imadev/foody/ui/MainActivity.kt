@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity() {
                 endId: Int,
                 progress: Float
             ) {
-                isDrawerActive = progress.toInt() != 0
+                isDrawerActive = progress.toInt() > 0
             }
 
             override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
