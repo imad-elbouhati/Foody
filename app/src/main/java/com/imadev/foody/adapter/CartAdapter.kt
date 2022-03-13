@@ -1,8 +1,11 @@
 package com.imadev.foody.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.imadev.foody.R
 import com.imadev.foody.databinding.ItemRowOrderLayoutBinding
@@ -34,6 +37,12 @@ class CartAdapter(private var meals: MutableList<Meal> = mutableListOf()) : Recy
                 foodPrice.text = context.resources.getString(R.string.price, meal.price.toString())
                 counter.setFoodModel(meal)
                 counter.setQuantity(meal.quantity)
+
+                Log.d(TAG, "bind: ${counter.isVisible}")
+
+                counter.setOnClickListener {
+                    Toast.makeText(context, counter.meal?.quantity.toString(), Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

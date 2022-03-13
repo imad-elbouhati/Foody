@@ -77,7 +77,6 @@ class MainActivity : AppCompatActivity() {
             val currentDestinationId = controller.currentDestination?.id
             if (currentDestinationId == R.id.homeFragment ||
                 currentDestinationId == R.id.favoritesFragment ||
-                currentDestinationId == R.id.checkoutFragment ||
                 currentDestinationId == R.id.userFragment ||
                 currentDestinationId == R.id.historyFragment
             ) {
@@ -130,7 +129,7 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onSupportNavigateUp(): Boolean {
-
+        
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
@@ -169,6 +168,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         if(isDrawerActive) {
+            Log.d(TAG, "onBackPressed: $isDrawerActive")
             binding.motionLayout.transitionToStart()
             return
         }

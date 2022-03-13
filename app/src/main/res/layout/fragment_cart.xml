@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,124 +10,121 @@
     tools:context=".ui.home.HomeFragment">
 
 
-    <FrameLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/foody_background"
+        android:paddingBottom="50dp"
+        tools:visibility="visible"
+        android:visibility="gone">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint"
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_guideline"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/foody_background"
-            android:paddingBottom="50dp"
-            tools:visibility="visible"
-            android:visibility="gone">
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".05" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/left_guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent=".05" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/right_guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent=".95" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".95" />
 
 
-            <LinearLayout
-                android:id="@+id/holder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="8dp"
-                app:layout_constraintEnd_toEndOf="@+id/right_guideline"
-                app:layout_constraintStart_toStartOf="@+id/left_guideline"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/swipe_icon"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginEnd="8dp"
-                    android:contentDescription="@string/swipe_to_delete"
-                    android:src="@drawable/ic_swipe" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/swipe_on_item_to_delete"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/cart_list"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="@+id/right_guideline"
-                app:layout_constraintStart_toStartOf="@+id/left_guideline"
-                app:layout_constraintTop_toBottomOf="@+id/holder"
-                app:reverseLayout="true"
-                app:stackFromEnd="true"
-                tools:itemCount="4"
-                tools:listitem="@layout/item_row_order_layout" />
-
-            <Button
-                android:id="@+id/completeOrderBtn"
-                android:layout_width="0dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="40dp"
-                android:background="@drawable/rounded_button"
-                android:text="@string/complete_order"
-                android:textAllCaps="false"
-                android:textSize="17sp"
-                android:enabled="false"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/right_guideline"
-                app:layout_constraintStart_toStartOf="@+id/left_guideline"
-                app:layout_constraintTop_toBottomOf="@+id/cart_list" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <RelativeLayout
-            android:id="@+id/empty_cart"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <LinearLayout
+            android:id="@+id/holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
             app:layout_constraintEnd_toEndOf="@+id/right_guideline"
             app:layout_constraintStart_toStartOf="@+id/left_guideline"
-            app:layout_constraintTop_toBottomOf="@+id/holder"
-            tools:visibility="gone">
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/cart_ic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:src="@drawable/cart_drawable" />
+                android:id="@+id/swipe_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/swipe_to_delete"
+                android:src="@drawable/ic_swipe" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/cart_ic"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:text="@string/no_item_added_to_cart_yet"
-                android:textColor="@color/black"
-                android:textSize="28sp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
-    </FrameLayout>
+                android:text="@string/swipe_on_item_to_delete"
+                android:textColor="@color/black" />
+        </LinearLayout>
 
 
-</ScrollView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cart_list"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="@+id/right_guideline"
+            app:layout_constraintStart_toStartOf="@+id/left_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/holder"
+            app:reverseLayout="true"
+            app:stackFromEnd="true"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_row_order_layout" />
+
+        <Button
+            android:id="@+id/completeOrderBtn"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_button"
+            android:text="@string/complete_order"
+            android:textAllCaps="false"
+            android:textSize="17sp"
+            android:enabled="false"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/right_guideline"
+            app:layout_constraintStart_toStartOf="@+id/left_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/cart_list" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/empty_cart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/right_guideline"
+        app:layout_constraintStart_toStartOf="@+id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/holder"
+        tools:visibility="gone">
+
+        <ImageView
+            android:id="@+id/cart_ic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/cart_drawable" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cart_ic"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="@string/no_item_added_to_cart_yet"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+</FrameLayout>
