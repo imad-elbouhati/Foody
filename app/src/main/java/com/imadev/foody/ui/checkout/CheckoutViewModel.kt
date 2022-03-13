@@ -31,6 +31,7 @@ class CheckoutViewModel : BaseViewModel() {
 
     fun removeFromCart(meal: Meal) {
         _cartList.remove(meal)
+
         updateCartEmptiness()
     }
 
