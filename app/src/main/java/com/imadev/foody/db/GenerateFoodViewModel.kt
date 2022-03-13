@@ -66,7 +66,7 @@ class GenerateFoodViewModel : ViewModel() {
 
 
     init {
-        insertMeal()
+        //insertMeal()
     }
 
     private fun insertMeal() {

@@ -2,11 +2,16 @@ package com.imadev.foody.ui
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
+import androidx.activity.OnBackPressedDispatcher
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.lifecycle.*
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -35,6 +40,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
+    private var isDrawerActive = false
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -42,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+            supportFragmentManager.findFragmentById(R.id.fragmentContainer) as NavHostFragment
         navController = navHostFragment.navController
 
         appBarConfiguration = AppBarConfiguration(navController.graph)
@@ -53,8 +61,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.userFragment,
                 R.id.historyFragment,
                 R.id.favoritesFragment
-            ),
-            binding.drawerLayout
+            )
         )
 
 
@@ -62,16 +69,68 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         binding.bottomNav.setupWithNavController(navController)
-        binding.navView.setupWithNavController(navController)
 
 
-       // val viewModel = ViewModelProvider(this)[GenerateFoodViewModel::class.java]
+        // val viewModel = ViewModelProvider(this)[GenerateFoodViewModel::class.java]
+
+        navController.addOnDestinationChangedListener { controller, _, _ ->
+            val currentDestinationId = controller.currentDestination?.id
+            if (currentDestinationId == R.id.homeFragment ||
+                currentDestinationId == R.id.favoritesFragment ||
+                currentDestinationId == R.id.checkoutFragment ||
+                currentDestinationId == R.id.userFragment ||
+                currentDestinationId == R.id.historyFragment
+            ) {
+                binding.menuIc.show()
+            } else {
+                binding.menuIc.hide()
+            }
+        }
+
+
+
+        binding.signOut.setOnClickListener {
+            Toast.makeText(this@MainActivity, "To-Implement signout", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.motionLayout.addTransitionListener(object : MotionLayout.TransitionListener {
+            override fun onTransitionStarted(
+                motionLayout: MotionLayout?,
+                startId: Int,
+                endId: Int
+            ) {
+            }
+
+            override fun onTransitionChange(
+                motionLayout: MotionLayout?,
+                startId: Int,
+                endId: Int,
+                progress: Float
+            ) {
+                isDrawerActive = progress.toInt() != 0
+            }
+
+            override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
+            }
+
+            override fun onTransitionTrigger(
+                motionLayout: MotionLayout?,
+                triggerId: Int,
+                positive: Boolean,
+                progress: Float
+            ) {
+            }
+        })
+
+
+
 
 
     }
 
 
     override fun onSupportNavigateUp(): Boolean {
+
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
@@ -101,13 +160,19 @@ class MainActivity : AppCompatActivity() {
     fun getToolbar() = binding.toolbar
 
     fun showProgressBar() {
-        Log.d(TAG, "showProgressBar: show")
         binding.progressBar.show()
     }
 
     fun hideProgressBar() {
-        Log.d(TAG, "hideProgressBar: hide")
         binding.progressBar.hide()
+    }
+
+    override fun onBackPressed() {
+        if(isDrawerActive) {
+            binding.motionLayout.transitionToStart()
+            return
+        }
+        super.onBackPressed()
     }
 
 }
