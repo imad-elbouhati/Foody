@@ -92,6 +92,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this@MainActivity, "To-Implement signout", Toast.LENGTH_SHORT).show()
         }
 
+
         binding.motionLayout.addTransitionListener(object : MotionLayout.TransitionListener {
             override fun onTransitionStarted(
                 motionLayout: MotionLayout?,
@@ -106,7 +107,7 @@ class MainActivity : AppCompatActivity() {
                 endId: Int,
                 progress: Float
             ) {
-                isDrawerActive = progress > 0
+                isDrawerActive = progress.toInt() > 0
             }
 
             override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
@@ -167,8 +168,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        Log.d(TAG, "onBackPressed: $isDrawerActive")
+
         if(isDrawerActive) {
-            Log.d(TAG, "onBackPressed: $isDrawerActive")
             binding.motionLayout.transitionToStart()
             return
         }
