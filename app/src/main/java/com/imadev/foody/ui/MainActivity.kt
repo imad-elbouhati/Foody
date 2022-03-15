@@ -105,7 +105,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
-                //In case of onSwipe the progress doesn't reach 1 when completed to I have to force it when onTransitionCompleted
+                //In case of onSwipe the progress doesn't reach 1 when animation completed so I have to force it when onTransitionCompleted
                 if(mMotionProgress > 0) isDrawerActive = true
             }
 
