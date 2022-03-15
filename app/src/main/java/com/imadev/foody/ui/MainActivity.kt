@@ -1,28 +1,19 @@
 package com.imadev.foody.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.*
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.viewbinding.ViewBinding
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import com.imadev.foody.R
 import com.imadev.foody.databinding.ActivityMainBinding
-import com.imadev.foody.db.GenerateFoodViewModel
-import com.imadev.foody.utils.Constants
 import com.imadev.foody.utils.hide
 import com.imadev.foody.utils.show
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 
 
 private const val TAG = "MainActivity"
@@ -39,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
 
         val navHostFragment =
@@ -65,7 +57,6 @@ class MainActivity : AppCompatActivity() {
         binding.navView.setupWithNavController(navController)
 
 
-        val viewModel = ViewModelProvider(this)[GenerateFoodViewModel::class.java]
 
 
     }
@@ -99,6 +90,8 @@ class MainActivity : AppCompatActivity() {
     fun getToolbarIcon() = binding.bubbleCart.toolbarIcon
 
     fun getToolbar() = binding.toolbar
+
+    fun getBottomNav() = binding.bottomNav
 
     fun showProgressBar() {
         binding.progressBar.show()
