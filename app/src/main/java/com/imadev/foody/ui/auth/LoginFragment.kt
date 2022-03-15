@@ -86,7 +86,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, AuthViewModel>() {
         }
     }
 
-
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
@@ -95,7 +94,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, AuthViewModel>() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
                     val user = auth.currentUser
-                    Log.d(TAG, "firebaseAuthWithGoogle: ${user?.email}")
+                    Log.d(TAG, "firebaseAuthWithGoogle: ${user?.uid}")
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
