@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainer) as NavHostFragment
         navController = navHostFragment.navController
@@ -125,7 +126,7 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onSupportNavigateUp(): Boolean {
-        
+
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
@@ -153,6 +154,8 @@ class MainActivity : AppCompatActivity() {
     fun getToolbarIcon() = binding.bubbleCart.toolbarIcon
 
     fun getToolbar() = binding.toolbar
+
+    fun getBottomNav() = binding.bottomNav
 
     fun showProgressBar() {
         binding.progressBar.show()
