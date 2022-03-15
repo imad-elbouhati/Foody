@@ -10,5 +10,6 @@ class Constants {
         const val CATEGORY_COLLECTION = "categories"
         const val MEALS_COLLECTION = "meals"
         const val CATEGORY_ID = "categoryId"
+        const val RC_SIGN_IN = 100
     }
 }

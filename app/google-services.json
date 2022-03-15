@@ -7,6 +7,46 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:392557441259:android:d06e137842dd5b06aaceae",
+        "android_client_info": {
+          "package_name": "com.imadev.deliveryguy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "392557441259-i24qh4m7b9chjjshp9ckbpmp20fum0m5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.imadev.deliveryguy",
+            "certificate_hash": "31112e21bb8777653e3ab42e75282e1dd4f19bd5"
+          }
+        },
+        {
+          "client_id": "392557441259-d0nfo758mqa0dilipn9b9k6ukd68sa19.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTJsR2BSs-TwZOH8U-UXpYj9X-HRnugFg"
+        },
+        {
+          "current_key": "AIzaSyDm2nRQu4Ufj5bIdBlc40XxnYSI257DFz0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "392557441259-d0nfo758mqa0dilipn9b9k6ukd68sa19.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:392557441259:android:5ad2893b6bba892aaaceae",
         "android_client_info": {
           "package_name": "com.imadev.foody"
@@ -22,11 +62,30 @@
           }
         },
         {
+          "client_id": "392557441259-ghtmmq1l77vj9febd38nrff097rqk68j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.imadev.foody",
+            "certificate_hash": "dc875e41e72af50be299970567f087fea9b37e46"
+          }
+        },
+        {
+          "client_id": "392557441259-l6aaakfdh44fh6na71omir97psi1vtom.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.imadev.foody",
+            "certificate_hash": "31112e21bb8777653e3ab42e75282e1dd4f19bd5"
+          }
+        },
+        {
           "client_id": "392557441259-d0nfo758mqa0dilipn9b9k6ukd68sa19.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
+        {
+          "current_key": "AIzaSyDTJsR2BSs-TwZOH8U-UXpYj9X-HRnugFg"
+        },
         {
           "current_key": "AIzaSyDm2nRQu4Ufj5bIdBlc40XxnYSI257DFz0"
         }

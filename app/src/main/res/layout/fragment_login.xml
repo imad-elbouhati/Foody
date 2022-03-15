@@ -9,6 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:background="#F5F5F8"
         android:layout_height="wrap_content">
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/left_guideline"
@@ -59,7 +60,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="28dp"
             android:background="@drawable/rounded_search_view"
-            android:drawableStart="@drawable/morocco_flag_ic"
+            android:drawableStart="@drawable/ic_flag_morocco"
             android:drawablePadding="24dp"
             android:hint="@string/your_phone_number"
             android:inputType="phone"
@@ -122,7 +123,6 @@
             android:layout_height="70dp"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
-            android:padding="10dp"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintStart_toStartOf="@+id/linearLayout"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
@@ -133,9 +133,9 @@
                 android:layout_height="50dp"
                 android:layout_marginEnd="2.5dp"
                 android:layout_weight="1"
-
+            android:layout_marginTop="5dp"
                 android:background="@drawable/rounded_button"
-                android:drawableLeft="@drawable/facebook"
+                android:drawableLeft="@drawable/ic_facebook_ic"
                 android:drawablePadding="18dp"
                 android:gravity="start|center_vertical"
                 android:paddingStart="10dp"
@@ -152,8 +152,10 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="2.5dp"
                 android:layout_weight="1"
+                android:layout_marginTop="5dp"
+
                 android:background="@drawable/rounded_button"
-                android:drawableLeft="@drawable/google_ic"
+                android:drawableLeft="@drawable/ic_google_ic"
                 android:drawablePadding="18dp"
                 android:gravity="start|center_vertical"
                 android:paddingLeft="10dp"
@@ -164,22 +166,7 @@
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/socialLinearLayout"
-            app:layout_constraintStart_toStartOf="@+id/socialLinearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/socialLinearLayout">
 
-            <TextView
-                android:id="@+id/cguTextView"
-                android:layout_width="365dp"
-                android:layout_height="wrap_content"
-                android:gravity="center" />
-
-        </RelativeLayout>
 
         <ProgressBar
             android:id="@+id/progressBar3"
