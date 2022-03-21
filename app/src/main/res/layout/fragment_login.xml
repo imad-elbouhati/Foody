@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:background="#F5F5F8"
     tools:context=".ui.auth.LoginFragment">
 
@@ -51,7 +52,6 @@
             android:layout_marginTop="16dp"
             android:src="@drawable/ic_launcher_background"
             app:layout_constraintEnd_toEndOf="@+id/right_guideline"
-
             app:layout_constraintStart_toStartOf="@+id/left_guideline"
             app:layout_constraintTop_toBottomOf="@+id/btnIgnore" />
 
@@ -67,9 +67,8 @@
             android:hint="@string/your_phone_number"
             android:inputType="phone"
             android:padding="12dp"
-            app:layout_constraintEnd_toEndOf="@+id/imageView"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="@+id/right_guideline"
+            app:layout_constraintStart_toStartOf="@+id/left_guideline"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -83,8 +82,8 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/editTextPhoneNumber"
-            app:layout_constraintStart_toStartOf="@+id/editTextPhoneNumber"
+            app:layout_constraintEnd_toEndOf="@+id/right_guideline"
+            app:layout_constraintStart_toStartOf="@+id/left_guideline"
             app:layout_constraintTop_toBottomOf="@+id/editTextPhoneNumber" />
 
         <LinearLayout
@@ -93,8 +92,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            app:layout_constraintEnd_toEndOf="@+id/suivantBtn"
-            app:layout_constraintStart_toStartOf="@+id/suivantBtn"
+            app:layout_constraintEnd_toEndOf="@+id/right_guideline"
+            app:layout_constraintStart_toStartOf="@+id/left_guideline"
             app:layout_constraintTop_toBottomOf="@+id/suivantBtn">
 
             <View
@@ -117,64 +116,12 @@
                 android:background="@color/black" />
         </LinearLayout>
 
-
-
-        <!--<LinearLayout
-            android:id="@+id/socialLinearLayout"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/facebook_sign_in_btn"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="2.5dp"
-                android:layout_weight="1"
-            android:layout_marginTop="5dp"
-                android:background="@drawable/rounded_button"
-                android:drawableLeft="@drawable/ic_facebook_ic"
-                android:drawablePadding="18dp"
-                android:gravity="start|center_vertical"
-                android:paddingStart="10dp"
-                android:text="@string/facebook"
-
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-
-                android:textSize="18sp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/google_sign_in_btn"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="2.5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-
-                android:background="@drawable/rounded_button"
-                android:drawableLeft="@drawable/ic_google_ic"
-                android:drawablePadding="18dp"
-                android:gravity="start|center_vertical"
-                android:paddingLeft="10dp"
-                android:text="@string/google"
-
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-        </LinearLayout>-->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/google_sign_in_btn"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_marginStart="1dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/rounded_button"
-
             android:drawableLeft="@drawable/ic_google_ic"
             android:paddingStart="30dp"
             android:paddingLeft="20dp"
@@ -183,9 +130,8 @@
             android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="@+id/right_guideline"
+            app:layout_constraintStart_toStartOf="@+id/left_guideline"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -203,11 +149,8 @@
             android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:layout_marginBottom="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/google_sign_in_btn"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/google_sign_in_btn"
+            app:layout_constraintEnd_toEndOf="@+id/right_guideline"
+            app:layout_constraintStart_toStartOf="@+id/left_guideline"
             app:layout_constraintTop_toBottomOf="@+id/google_sign_in_btn" />
 
 
