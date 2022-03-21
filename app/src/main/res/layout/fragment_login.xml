@@ -88,30 +88,35 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
+            android:weightSum="3"
             app:layout_constraintEnd_toEndOf="@+id/right_guideline"
             app:layout_constraintStart_toStartOf="@+id/left_guideline"
             app:layout_constraintTop_toBottomOf="@+id/suivantBtn">
 
             <View
-                android:layout_width="150dp"
+                android:layout_width="0dp"
                 android:layout_height="1dp"
+                android:layout_weight="1.25"
                 android:background="@color/black" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:text="@string/or"
+                android:gravity="center"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
             <View
-                android:layout_width="150dp"
+                android:layout_width="0dp"
+                android:layout_weight="1.25"
                 android:layout_height="1dp"
                 android:background="@color/black" />
         </LinearLayout>
