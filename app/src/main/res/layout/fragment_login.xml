@@ -11,12 +11,13 @@
         android:layout_width="match_parent"
         android:background="#F5F5F8"
         android:layout_height="wrap_content">
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/left_guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent=".1" />
+            app:layout_constraintGuide_end="370dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/right_guideline"
@@ -32,7 +33,7 @@
 
             android:layout_marginTop="15dp"
 
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/rounded_search_view"
             android:backgroundTint="@color/foody_orange"
             android:textColor="@color/white"
             android:text="@string/ignore"
@@ -59,6 +60,7 @@
             android:layout_width="0dp"
             android:layout_height="53dp"
             android:layout_marginTop="28dp"
+
             android:background="@drawable/rounded_search_view"
             android:drawableStart="@drawable/ic_flag_morocco"
             android:drawablePadding="24dp"
@@ -74,11 +76,11 @@
             android:id="@+id/suivantBtn"
             android:layout_width="0dp"
             android:layout_height="53dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/rounded_search_view"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="@color/foody_orange"
             android:text="@string/next"
             android:textAllCaps="false"
-            android:backgroundTint="@color/foody_orange"
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/editTextPhoneNumber"
@@ -117,7 +119,7 @@
 
 
 
-        <LinearLayout
+        <!--<LinearLayout
             android:id="@+id/socialLinearLayout"
             android:layout_width="0dp"
             android:layout_height="70dp"
@@ -151,8 +153,8 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="2.5dp"
-                android:layout_weight="1"
                 android:layout_marginTop="5dp"
+                android:layout_weight="1"
 
                 android:background="@drawable/rounded_button"
                 android:drawableLeft="@drawable/ic_google_ic"
@@ -164,7 +166,48 @@
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
-        </LinearLayout>
+        </LinearLayout>-->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/google_sign_in_btn"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/rounded_button"
+
+            android:drawableLeft="@drawable/ic_google_ic"
+            android:paddingStart="30dp"
+            android:paddingLeft="20dp"
+            android:text="@string/sign_in_with_google"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/facebook_sign_in_btn"
+
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/rounded_button"
+            android:drawableLeft="@drawable/ic_facebook_ic"
+            android:paddingStart="30dp"
+            android:paddingLeft="20dp"
+            android:text="@string/sign_in_with_facebook"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/google_sign_in_btn"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/google_sign_in_btn"
+            app:layout_constraintTop_toBottomOf="@+id/google_sign_in_btn" />
+
 
 
 
