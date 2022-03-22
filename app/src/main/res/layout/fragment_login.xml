@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F8"
-    tools:context=".ui.auth.LoginFragment">
+    tools:context=".ui.auth.LoginFragment"
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -204,7 +205,7 @@
             android:textSize="14sp"
             android:textStyle="bold"
             android:layout_marginBottom="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+
             app:layout_constraintEnd_toEndOf="@+id/google_sign_in_btn"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/google_sign_in_btn"
