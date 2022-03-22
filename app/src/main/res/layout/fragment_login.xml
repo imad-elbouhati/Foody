@@ -30,23 +30,19 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnIgnore"
             android:layout_width="75dp"
-            android:layout_height="37dp"
-
+            android:layout_height="48dp"
             android:layout_marginTop="15dp"
-
             android:background="@drawable/rounded_search_view"
             android:backgroundTint="@color/foody_orange"
-            android:textColor="@color/white"
             android:text="@string/ignore"
             android:textAllCaps="false"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/right_guideline"
-
             app:layout_constraintTop_toTopOf="parent" />
 
 
         <ImageView
             android:id="@+id/imageView"
-
             android:layout_width="0dp"
             android:layout_height="207dp"
             android:layout_marginTop="16dp"
@@ -60,15 +56,15 @@
             android:layout_width="0dp"
             android:layout_height="53dp"
             android:layout_marginTop="28dp"
-
             android:background="@drawable/rounded_search_view"
             android:drawableStart="@drawable/ic_flag_morocco"
             android:drawablePadding="24dp"
+            android:autofillHints="phone"
             android:hint="@string/your_phone_number"
             android:inputType="phone"
-            android:padding="12dp"
             app:layout_constraintEnd_toEndOf="@+id/right_guideline"
             app:layout_constraintStart_toStartOf="@+id/left_guideline"
+            android:paddingStart="12dp"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -124,12 +120,11 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/google_sign_in_btn"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="53dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/rounded_button"
             android:drawableLeft="@drawable/ic_google_ic"
-            android:paddingStart="30dp"
-            android:paddingLeft="20dp"
+            android:paddingLeft="10dp"
             android:text="@string/sign_in_with_google"
             android:textAllCaps="false"
             android:textColor="@color/black"
@@ -143,12 +138,11 @@
             android:id="@+id/facebook_sign_in_btn"
 
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="53dp"
             android:layout_marginTop="18dp"
             android:background="@drawable/rounded_button"
             android:drawableLeft="@drawable/ic_facebook_ic"
-            android:paddingStart="30dp"
-            android:paddingLeft="20dp"
+            android:paddingLeft="10dp"
             android:text="@string/sign_in_with_facebook"
             android:textAllCaps="false"
             android:textColor="@color/black"
