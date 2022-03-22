@@ -1,9 +1,12 @@
 package com.imadev.foody.ui
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -20,11 +23,15 @@ private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
 
+    private var mMotionProgress: Float = 0f
     private lateinit var binding: ActivityMainBinding
 
     private lateinit var navController: NavController
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+
+    private var isDrawerActive = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+            supportFragmentManager.findFragmentById(R.id.fragmentContainer) as NavHostFragment
         navController = navHostFragment.navController
 
         appBarConfiguration = AppBarConfiguration(navController.graph)
@@ -45,8 +52,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.userFragment,
                 R.id.historyFragment,
                 R.id.favoritesFragment
-            ),
-            binding.drawerLayout
+            )
         )
 
 
@@ -54,7 +60,65 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         binding.bottomNav.setupWithNavController(navController)
-        binding.navView.setupWithNavController(navController)
+
+
+        // val viewModel = ViewModelProvider(this)[GenerateFoodViewModel::class.java]
+
+        navController.addOnDestinationChangedListener { controller, _, _ ->
+            val currentDestinationId = controller.currentDestination?.id
+            if (currentDestinationId == R.id.homeFragment ||
+                currentDestinationId == R.id.favoritesFragment ||
+                currentDestinationId == R.id.userFragment ||
+                currentDestinationId == R.id.historyFragment
+            ) {
+                binding.menuIc.show()
+            } else {
+                binding.menuIc.hide()
+            }
+        }
+
+
+
+        binding.signOut.setOnClickListener {
+            Toast.makeText(this@MainActivity, "To-Implement signout", Toast.LENGTH_SHORT).show()
+        }
+
+
+
+        binding.motionLayout.addTransitionListener(object : MotionLayout.TransitionListener {
+            override fun onTransitionStarted(
+                motionLayout: MotionLayout?,
+                startId: Int,
+                endId: Int
+            ) {
+            }
+
+            override fun onTransitionChange(
+                motionLayout: MotionLayout?,
+                startId: Int,
+                endId: Int,
+                progress: Float
+            ) {
+                mMotionProgress = progress
+                isDrawerActive = progress > 0
+            }
+
+            override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
+                //In case of onSwipe the progress doesn't reach 1 when animation completed so I have to force it when onTransitionCompleted
+
+                if(mMotionProgress > 0) isDrawerActive = true
+            }
+
+            override fun onTransitionTrigger(
+                motionLayout: MotionLayout?,
+                triggerId: Int,
+                positive: Boolean,
+                progress: Float
+            ) {
+
+            }
+        })
+
 
 
 
@@ -63,6 +127,7 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onSupportNavigateUp(): Boolean {
+
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
@@ -99,6 +164,16 @@ class MainActivity : AppCompatActivity() {
 
     fun hideProgressBar() {
         binding.progressBar.hide()
+    }
+
+    override fun onBackPressed() {
+        Log.d(TAG, "onBackPressed: $isDrawerActive")
+
+        if(isDrawerActive) {
+            binding.motionLayout.transitionToStart()
+            return
+        }
+        super.onBackPressed()
     }
 
 }

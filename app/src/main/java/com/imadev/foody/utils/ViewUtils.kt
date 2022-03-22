@@ -12,6 +12,7 @@ import androidx.annotation.ColorInt
 import androidx.viewbinding.ViewBinding
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
+import com.imadev.foody.R
 import com.imadev.foody.ui.MainActivity
 
 
@@ -37,7 +38,7 @@ fun View.disable() {
 
 
 fun ImageView.loadFromUrl(context: Context, url: String?) {
-    Glide.with(context).load(url).into(this)
+    Glide.with(context).load(url).error(R.drawable.error_loading).into(this)
 }
 
 fun Snackbar.setIcon(drawable: Drawable, @ColorInt colorTint: Int): Snackbar {

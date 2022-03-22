@@ -51,6 +51,7 @@
     <string name="empty_cart">Empty cart</string>
     <string name="no_item_added_to_cart_yet">No item added to cart yet</string>
     <string name="search">Search</string>
+    <string name="sign_out">Sign-out</string>
     <string name="web_client_id" translatable="false">392557441259-d0nfo758mqa0dilipn9b9k6ukd68sa19.apps.googleusercontent.com</string>
     <string name="sign_in_with_facebook">Sign In With Facebook</string>
     <string name="sign_in_with_google">Sign In With Google</string>

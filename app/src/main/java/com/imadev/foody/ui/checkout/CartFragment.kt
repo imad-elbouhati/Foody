@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -51,6 +52,9 @@ class CartFragment : BaseFragment<FragmentCartBinding, CheckoutViewModel>() {
 
         adapter = CartAdapter(viewModel.cartList as MutableList<Meal>)
 
+        adapter.addOnCountChanged {
+            Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
+        }
 
         viewModel.cartIsEmpty.observe(viewLifecycleOwner) { isEmpty ->
             if (isEmpty) {
@@ -83,6 +87,10 @@ class CartFragment : BaseFragment<FragmentCartBinding, CheckoutViewModel>() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        setToolbarTitle(activity as MainActivity)
+    }
     override fun setToolbarTitle(activity: MainActivity) {
         activity.setToolbarTitle(R.string.cart)
     }
