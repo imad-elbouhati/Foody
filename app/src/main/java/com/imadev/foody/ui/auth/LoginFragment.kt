@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
@@ -27,12 +26,10 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.imadev.foody.R
-
 import com.imadev.foody.databinding.FragmentLoginBinding
 import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.ui.common.BaseFragment
 import com.imadev.foody.utils.Constants.Companion.RC_SIGN_IN
-import com.imadev.foody.utils.hide
 
 private const val TAG = "LoginFragment"
 
@@ -59,9 +56,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, AuthViewModel>() {
 
         callbackManager = CallbackManager.Factory.create();
 
-binding.facebookSignInBtn.setOnClickListener {
-signInWithFacebook()
-}
+        binding.facebookSignInBtn.setOnClickListener {
+            signInWithFacebook()
+        }
 
 
         // Configure Google Sign In
@@ -80,7 +77,10 @@ signInWithFacebook()
     }
 
     private fun signInWithFacebook() {
-        LoginManager.getInstance().logInWithReadPermissions(this, listOf("email"));
+        callbackManager?.let {
+            LoginManager.getInstance().logInWithReadPermissions(this,
+                it, listOf("email", "public_profile", "user_friends"))
+        };
         callbackManager = CallbackManager.Factory.create()
         LoginManager.getInstance().registerCallback(callbackManager, object :
             FacebookCallback<LoginResult> {
@@ -133,7 +133,7 @@ signInWithFacebook()
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        callbackManager?.onActivityResult(requestCode, resultCode, data)
+        // callbackManager?.onActivityResult(requestCode, resultCode, data)
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
