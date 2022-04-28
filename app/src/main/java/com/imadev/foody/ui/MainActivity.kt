@@ -101,6 +101,8 @@ class MainActivity : AppCompatActivity() {
             ) {
                 mMotionProgress = progress
                 isDrawerActive = progress > 0
+
+                Log.d(TAG, "onTransitionChange: $progress")
             }
 
             override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {

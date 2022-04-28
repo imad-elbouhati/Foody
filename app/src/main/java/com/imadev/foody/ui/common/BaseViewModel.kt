@@ -26,5 +26,4 @@ abstract class BaseViewModel : ViewModel() {
         _navigation.value = Event(NavigationCommand.ToDirectionAction(navDirections,bundle))
     }
 
-
 }

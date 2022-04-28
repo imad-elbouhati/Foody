@@ -176,6 +176,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
                         is Resource.Error -> {
                             (activity as MainActivity).hideProgressBar()
+                            Log.d(TAG, "observeSubscribers: ${it.error?.message}")
                         }
                     }
                 }

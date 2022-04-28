@@ -29,6 +29,7 @@ import com.imadev.foody.utils.hide
 private const val TAG = "LoginFragment"
 
 class LoginFragment : BaseFragment<FragmentLoginBinding, AuthViewModel>() {
+
     override val viewModel: AuthViewModel by viewModels()
 
     // Configure Google Sign In

@@ -23,8 +23,8 @@
         <OnClick motion:targetId="@+id/menu_ic" />
 
 
-        <OnSwipe motion:dragDirection="dragRight"/>
-
+        <OnSwipe motion:dragDirection="dragRight"
+            />
     </Transition>
     <ConstraintSet android:id="@+id/start">
         <Constraint
