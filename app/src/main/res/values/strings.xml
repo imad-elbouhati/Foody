@@ -10,49 +10,55 @@
     <string name="user">User</string>
     <string name="favourites">Favourites</string>
     <string name="home">Home</string>
-    <string name="open_drawer">open</string>
-    <string name="close_drawer">close</string>
-    <string name="foods">Foods</string>
-    <string name="drinks">Drinks</string>
-    <string name="snacks">Snacks</string>
-    <string name="food_image">Food image</string>
-    <string name="food_details">Food Details</string>
-    <string name="see_more">See more</string>
-    <string name="cart">Cart</string>
-    <string name="swipe_to_delete">Swipe to delete</string>
-    <string name="swipe_on_item_to_delete">Swipe on item to delete</string>
-    <string name="complete_order">Complete order</string>
-    <string name="price">%1$s MAD</string>
-    <string name="checkout">Checkout</string>
-    <string name="delivery">Delivery</string>
-    <string name="address_details">Address details</string>
-    <string name="change">change</string>
-    <string name="payment_method">Payment method</string>
-    <string name="card">Card</string>
-    <string name="bank_account">Bank account</string>
-    <string name="total">Total</string>
-    <string name="proceed_to_payment">Proceed to payment</string>
-    <string name="cash_on_delivery">Cash on delivery</string>
-    <string name="undo">Undo</string>
-    <string name="order_delete_successfully">Order successfully deleted</string>
-    <string name="map">Map</string>
-    <string name="select_this_adress">Select this adress</string>
-    <string name="ignore">Ignore</string>
-    <string name="your_phone_number">Your phone number</string>
-    <string name="next">Next</string>
-    <string name="or">Or</string>
-    <string name="sing_in_with_email">Sing in with email</string>
-    <string name="facebook">Facebook</string>
-    <string name="google">Google</string>
-    <string name="code_verification">Code verification</string>
-    <string name="phone_number">Phone number</string>
-    <string name="adress">Adress</string>
-    <string name="your_name">Your name</string>
-    <string name="empty_cart">Empty cart</string>
-    <string name="no_item_added_to_cart_yet">No item added to cart yet</string>
-    <string name="search">Search</string>
-    <string name="sign_out">Sign-out</string>
+    <string name="open_drawer" translatable="false">open</string>
+    <string name="close_drawer" translatable="false">close</string>
+    <string name="foods" translatable="false">Foods</string>
+    <string name="drinks" translatable="false">Drinks</string>
+    <string name="snacks" translatable="false">Snacks</string>
+    <string name="food_image" translatable="false">Food image</string>
+    <string name="food_details" translatable="false">Food Details</string>
+    <string name="see_more" translatable="false">See more</string>
+    <string name="cart" translatable="false">Cart</string>
+    <string name="swipe_to_delete" translatable="false">Swipe to delete</string>
+    <string name="swipe_on_item_to_delete" translatable="false">Swipe on item to delete</string>
+    <string name="complete_order" translatable="false">Complete order</string>
+    <string name="price" translatable="false">%1$s MAD</string>
+    <string name="checkout" translatable="false">Checkout</string>
+    <string name="delivery" translatable="false">Delivery</string>
+    <string name="address_details" translatable="false">Address details</string>
+    <string name="change" translatable="false">change</string>
+    <string name="payment_method" translatable="false">Payment method</string>
+    <string name="card" translatable="false">Card</string>
+    <string name="bank_account" translatable="false">Bank account</string>
+    <string name="total" translatable="false">Total</string>
+    <string name="proceed_to_payment" translatable="false">Proceed to payment</string>
+    <string name="cash_on_delivery" translatable="false">Cash on delivery</string>
+    <string name="undo" translatable="false">Undo</string>
+    <string name="order_delete_successfully" translatable="false">Order successfully deleted</string>
+    <string name="map" translatable="false">Map</string>
+    <string name="select_this_adress" translatable="false">Select this adress</string>
+    <string name="ignore" translatable="false">Ignore</string>
+    <string name="your_phone_number" translatable="false">Your phone number</string>
+    <string name="next" translatable="false">Next</string>
+    <string name="or" translatable="false">Or</string>
+    <string name="sing_in_with_email" translatable="false">Sing in with email</string>
+    <string name="facebook" translatable="false">Facebook</string>
+    <string name="google" translatable="false">Google</string>
+    <string name="code_verification" translatable="false">Code verification</string>
+    <string name="phone_number" translatable="false">Phone number</string>
+    <string name="adress" translatable="false">Adress</string>
+    <string name="your_name" translatable="false">Your name</string>
+    <string name="empty_cart" translatable="false">Empty cart</string>
+    <string name="no_item_added_to_cart_yet" translatable="false">No item added to cart yet</string>
+    <string name="search" translatable="false">Search</string>
+    <string name="sign_out" translatable="false">Sign-out</string>
     <string name="web_client_id" translatable="false">392557441259-d0nfo758mqa0dilipn9b9k6ukd68sa19.apps.googleusercontent.com</string>
-    <string name="sign_in_with_facebook">Sign In With Facebook</string>
-    <string name="sign_in_with_google">Sign In With Google</string>
+    <string name="sign_in_with_facebook" translatable="false">Sign In With Facebook</string>
+    <string name="sign_in_with_google" translatable="false">Sign In With Google</string>
+
+    <string name="facebook_app_id" translatable="false">3599908146799636</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb3599908146799636</string>
+    <string name="facebook_client_token" translatable="false">90f42d1819c035b8c74760c1914ffce1</string>
+
+
 </resources>

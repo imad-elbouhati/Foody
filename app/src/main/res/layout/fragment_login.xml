@@ -30,7 +30,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnIgnore"
             android:layout_width="75dp"
-            android:layout_height="48dp"
+            android:layout_height="38dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/rounded_search_view"
             android:backgroundTint="@color/foody_orange"
@@ -134,12 +134,13 @@
             app:layout_constraintStart_toStartOf="@+id/left_guideline"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/facebook_sign_in_btn"
 
             android:layout_width="0dp"
             android:layout_height="53dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="4dp"
             android:background="@drawable/rounded_button"
             android:drawableLeft="@drawable/ic_facebook_ic"
             android:paddingLeft="10dp"
@@ -149,11 +150,9 @@
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/right_guideline"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/left_guideline"
             app:layout_constraintTop_toBottomOf="@+id/google_sign_in_btn" />
-
-
-
 
         <ProgressBar
             android:id="@+id/progressBar3"
