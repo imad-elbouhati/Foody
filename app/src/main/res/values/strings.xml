@@ -61,4 +61,6 @@
     <string name="facebook_client_token" translatable="false">90f42d1819c035b8c74760c1914ffce1</string>
 
 
+    <string name="channel_name">delivery_channel</string>
+    <string name="channel_description">channel for delivery app</string>
 </resources>
