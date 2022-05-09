@@ -1,19 +1,20 @@
 package com.imadev.foody.utils
 
+import android.app.Activity
 import android.content.Context
-import android.content.res.Resources
+import android.content.Intent
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
-import android.util.TypedValue
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.ColorInt
+import androidx.core.app.ActivityCompat.finishAffinity
+import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import com.imadev.foody.R
-import com.imadev.foody.ui.MainActivity
 
 
 fun View.hide(invisible: Boolean = false) {
@@ -54,10 +55,17 @@ fun Snackbar.setIcon(drawable: Drawable, @ColorInt colorTint: Int): Snackbar {
 }
 
 
-
 fun ViewBinding.show() {
     this.root.show()
 }
+
 fun ViewBinding.hide() {
     this.root.hide()
+}
+
+
+fun Fragment.moveTo(activity: Class<out Activity>) {
+    val intent = Intent(requireActivity(), activity)
+    finishAffinity(requireActivity())
+    this.startActivity(intent)
 }

@@ -53,6 +53,16 @@
     <string name="search">Search</string>
     <string name="sign_out">Sign-out</string>
     <string name="web_client_id" translatable="false">392557441259-d0nfo758mqa0dilipn9b9k6ukd68sa19.apps.googleusercontent.com</string>
+    <string name="sign_in_with_facebook" translatable="false">Sign In With Facebook</string>
+    <string name="sign_in_with_google" translatable="false">Sign In With Google</string>
+
+    <string name="facebook_app_id" translatable="false">3599908146799636</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb3599908146799636</string>
+    <string name="facebook_client_token" translatable="false">90f42d1819c035b8c74760c1914ffce1</string>
+
+
+    <string name="channel_name">delivery_channel</string>
+    <string name="channel_description">channel for delivery app</string>
     <string name="sign_in_with_facebook">Sign In With Facebook</string>
     <string name="sign_in_with_google">Sign In With Google</string>
     <string name="app_logo">App Logo</string>
