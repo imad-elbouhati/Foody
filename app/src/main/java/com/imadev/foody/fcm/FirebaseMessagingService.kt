@@ -4,6 +4,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
+import android.util.Log
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -20,6 +21,8 @@ import com.imadev.foody.utils.Constants.Companion.CLIENTS_COLLECTION
 import com.imadev.foody.utils.Constants.Companion.NOTIFICATION_ID
 import com.imadev.foody.utils.Constants.Companion.ORDER_CHANNEL_ID
 
+
+private const val TAG = "FirebaseMessagingServic"
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onNewToken(newToken: String) {
@@ -33,7 +36,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     private fun updateTokenForUser(newToken: String) {
         val uid = FirebaseAuth.getInstance().currentUser?.uid ?: return
-
+        Log.d(TAG, "updateTokenForUser: $newToken")
         Firebase.firestore.collection(CLIENTS_COLLECTION).document(uid).update(TOKEN_FIELD,newToken).addOnFailureListener {
             Toast.makeText(this, "Failed updating token ", Toast.LENGTH_SHORT).show()
         }
@@ -79,6 +82,5 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     companion object {
         fun getToken(context: Context): String? =  context.getSharedPreferences(FCM_TOKEN_PREF, MODE_PRIVATE).getString(FCM_TOKEN, null)
-
     }
 }

@@ -26,12 +26,15 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessaging
+import com.google.firebase.messaging.FirebaseMessagingService
 import com.imadev.foody.R
 import com.imadev.foody.databinding.FragmentLoginBinding
 import com.imadev.foody.fcm.MyFirebaseMessagingService
 import com.imadev.foody.model.Client
 import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.ui.common.BaseFragment
+import com.imadev.foody.utils.Constants
 import com.imadev.foody.utils.Constants.Companion.CLIENTS_COLLECTION
 import com.imadev.foody.utils.Constants.Companion.RC_SIGN_IN
 import com.imadev.foody.utils.moveTo
@@ -137,8 +140,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, AuthViewModel>() {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    Toast.makeText(requireContext(), "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(), task.exception?.message,
+                        Toast.LENGTH_LONG
+                    ).show()
 
                 }
         }
@@ -194,22 +199,31 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, AuthViewModel>() {
 
 
     private fun saveUser(uid: String?, username: String?, phone: String?, email: String?) {
-        val fcmToken = MyFirebaseMessagingService.getToken(requireContext())
-        val client = Client(
-            username = username,
-            address = null,
-            phone = phone,
-            email = email,
-            token = fcmToken
-        )
 
-        if (uid != null) {
-            db.collection(CLIENTS_COLLECTION).document(uid).set(client).addOnFailureListener {
-                Log.d(TAG, "saveUser: ${it.message}")
-            }.addOnSuccessListener {
-                moveTo(MainActivity::class.java)
-            }
-        }
+       FirebaseMessaging.getInstance().token.addOnSuccessListener { newToken ->
+
+           requireContext().getSharedPreferences(Constants.FCM_TOKEN_PREF, FirebaseMessagingService.MODE_PRIVATE).edit().putString(Constants.FCM_TOKEN, newToken).apply()
+
+           val client = Client(
+               username = username,
+               address = null,
+               phone = phone,
+               email = email,
+               token = newToken
+           )
+
+           if (uid != null) {
+               db.collection(CLIENTS_COLLECTION).document(uid).set(client).addOnFailureListener {
+                   Log.d(TAG, "saveUser: ${it.message}")
+               }.addOnSuccessListener {
+                   moveTo(MainActivity::class.java)
+               }
+           }
+
+       }
+
+
+
 
     }
 
