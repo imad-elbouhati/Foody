@@ -53,8 +53,6 @@
     <string name="search">Search</string>
     <string name="sign_out">Sign-out</string>
     <string name="web_client_id" translatable="false">392557441259-d0nfo758mqa0dilipn9b9k6ukd68sa19.apps.googleusercontent.com</string>
-    <string name="sign_in_with_facebook" translatable="false">Sign In With Facebook</string>
-    <string name="sign_in_with_google" translatable="false">Sign In With Google</string>
 
     <string name="facebook_app_id" translatable="false">3599908146799636</string>
     <string name="fb_login_protocol_scheme" translatable="false">fb3599908146799636</string>

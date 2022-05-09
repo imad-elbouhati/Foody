@@ -69,3 +69,10 @@ fun Fragment.moveTo(activity: Class<out Activity>) {
     finishAffinity(requireActivity())
     this.startActivity(intent)
 }
+
+
+fun Activity.moveTo(activity: Class<out Activity>) {
+    val intent = Intent(this, activity)
+    finishAffinity(this)
+    this.startActivity(intent)
+}
