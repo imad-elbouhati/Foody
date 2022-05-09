@@ -1,12 +1,7 @@
 package com.imadev.foody.ui
 
-import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.view.WindowInsets
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -18,10 +13,12 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.imadev.foody.R
 import com.imadev.foody.databinding.ActivityMainBinding
-import com.imadev.foody.utils.hide
-import com.imadev.foody.utils.show
+import com.imadev.foody.ui.auth.SignInActivity
+import com.imadev.foody.utils.*
 
 
 private const val TAG = "MainActivity"
@@ -44,14 +41,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        @Suppress("DEPRECATION")
-        if (Build.VERSION.SDK_INT >= 30) {
-            binding.root.windowInsetsController?.show(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
-        } else {
-            binding.root.systemUiVisibility =
-                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
-                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-        }
+        binding.applyFullscreen()
 
 
         val navHostFragment =
@@ -138,6 +128,12 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
+        binding.signOut.setOnClickListener {
+            Firebase.auth.signOut()
+            getSharedPreferences(Constants.FCM_TOKEN_PREF, MODE_PRIVATE).edit().clear().apply()
+            moveTo(SignInActivity::class.java)
+        }
 
     }
 

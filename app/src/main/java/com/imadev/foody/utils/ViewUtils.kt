@@ -5,7 +5,9 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
+import android.os.Build
 import android.view.View
+import android.view.WindowInsets
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.ColorInt
@@ -75,4 +77,17 @@ fun Activity.moveTo(activity: Class<out Activity>) {
     val intent = Intent(this, activity)
     finishAffinity(this)
     this.startActivity(intent)
+}
+
+
+fun ViewBinding.applyFullscreen() {
+    @Suppress("DEPRECATION")
+    if (Build.VERSION.SDK_INT >= 30) {
+        this.root.windowInsetsController?.show(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
+    } else {
+        this.root.systemUiVisibility =
+            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+    }
+
 }

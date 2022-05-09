@@ -35,7 +35,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         val uid = FirebaseAuth.getInstance().currentUser?.uid ?: return
 
         Firebase.firestore.collection(CLIENTS_COLLECTION).document(uid).update(TOKEN_FIELD,newToken).addOnFailureListener {
-            Toast.makeText(this, "Failed updating token for registration", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Failed updating token ", Toast.LENGTH_SHORT).show()
         }
     }
 
