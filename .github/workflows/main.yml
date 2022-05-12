@@ -65,7 +65,8 @@ jobs:
           ruby-version: '2.6'
       - name: Install bundle
         run: |
-                gem install bundler:2.3.8
+                sudo apt-get -yqq install libpq-dev
+                gem install bundler
                 bundle config path vendor/bundle
                 bundle install --jobs 4 --retry 3
 
