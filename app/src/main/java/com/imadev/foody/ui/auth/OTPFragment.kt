@@ -11,8 +11,9 @@ import com.imadev.foody.databinding.FragmentLoginBinding
 import com.imadev.foody.databinding.FragmentOTPBinding
 import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.ui.common.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class OTPFragment :  BaseFragment<FragmentOTPBinding, AuthViewModel>() {
     override val viewModel: AuthViewModel by viewModels()
 

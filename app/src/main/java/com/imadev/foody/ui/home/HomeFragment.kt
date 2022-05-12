@@ -23,6 +23,7 @@ import com.imadev.foody.ui.checkout.CheckoutViewModel
 import com.imadev.foody.ui.common.BaseFragment
 import com.imadev.foody.utils.Constants.Companion.MEAL_ARG
 import com.imadev.foody.utils.Resource
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
@@ -30,6 +31,7 @@ import kotlinx.coroutines.launch
 
 private const val TAG = "HomeFragment"
 
+@AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
     override val viewModel: HomeViewModel by viewModels()

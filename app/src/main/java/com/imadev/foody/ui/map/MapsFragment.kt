@@ -20,10 +20,11 @@ import com.imadev.foody.databinding.FragmentMapsBinding
 import com.imadev.foody.model.Address
 import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.ui.common.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
 private const val TAG = "MapsFragment"
-
+@AndroidEntryPoint
 class MapsFragment : BaseFragment<FragmentMapsBinding, MapsViewModel>(), OnMapReadyCallback {
 
     private lateinit var map: GoogleMap

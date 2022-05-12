@@ -1,6 +1,7 @@
 package com.imadev.foody.ui.checkout
 
 import com.imadev.foody.model.Food
+import com.imadev.foody.repository.FoodyRepoImpTest
 import junit.framework.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -9,12 +10,6 @@ class CheckoutViewModelTest {
 
     private var cartList = mutableListOf<Food>()
 
-    private lateinit var viewModel:CheckoutViewModel
-
-    @Before
-    fun setup() {
-        viewModel = CheckoutViewModel()
-    }
 
 
     @Test

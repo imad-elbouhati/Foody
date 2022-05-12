@@ -14,8 +14,11 @@ import com.imadev.foody.databinding.FragmentCheckoutBinding
 import com.imadev.foody.model.Client
 import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.ui.common.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
 private const val TAG = "CheckoutFragment"
+
+@AndroidEntryPoint
 class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CheckoutViewModel>() {
 
     override val viewModel: CheckoutViewModel by activityViewModels()

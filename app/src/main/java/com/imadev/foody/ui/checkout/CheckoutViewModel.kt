@@ -4,22 +4,25 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.google.firebase.firestore.auth.User
-import com.imadev.foody.db.FireStoreManager
 import com.imadev.foody.model.Client
 import com.imadev.foody.model.Meal
+import com.imadev.foody.repository.FoodyRepo
+import com.imadev.foody.repository.FoodyRepoImp
 import com.imadev.foody.ui.common.BaseViewModel
 import com.imadev.foody.utils.formatDecimal
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 private const val TAG = "CheckoutViewModel"
 
-class CheckoutViewModel : BaseViewModel() {
+@HiltViewModel
+class CheckoutViewModel @Inject constructor(
+    val repository: FoodyRepo
+) : BaseViewModel() {
 
-    private val repository = FireStoreManager()
 
     val client = MutableStateFlow<Client?>(null)
 

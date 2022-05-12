@@ -9,8 +9,9 @@ import com.imadev.foody.R
 import com.imadev.foody.databinding.FragmentHistoryBinding
 import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.ui.common.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class HistoryFragment : BaseFragment<FragmentHistoryBinding, HistoryViewModel>() {
 
     override val viewModel: HistoryViewModel by viewModels()

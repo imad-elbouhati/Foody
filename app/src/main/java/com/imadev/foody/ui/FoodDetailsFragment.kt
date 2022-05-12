@@ -19,7 +19,9 @@ import com.imadev.foody.ui.home.HomeViewModel
 import com.imadev.foody.utils.Constants.Companion.MEAL_ARG
 import com.imadev.foody.utils.loadFromUrl
 import com.imadev.foody.utils.setIcon
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding, HomeViewModel>() {
 
     override val viewModel: HomeViewModel by viewModels()

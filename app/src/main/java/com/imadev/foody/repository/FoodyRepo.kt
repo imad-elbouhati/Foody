@@ -1,4 +1,4 @@
-package com.imadev.foody.db
+package com.imadev.foody.repository
 
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.auth.User
@@ -9,7 +9,7 @@ import com.imadev.foody.utils.Resource
 import kotlinx.coroutines.flow.Flow
 import java.util.ArrayList
 
-interface FireStoreRepo {
+interface FoodyRepo {
 
     suspend fun getMealsByCategory(categoryId: String):Flow<Resource<List<Meal?>>>
 

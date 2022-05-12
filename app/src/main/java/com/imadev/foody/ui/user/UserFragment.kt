@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.imadev.foody.R
 import com.imadev.foody.ui.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class UserFragment : Fragment() {
 
     override fun onCreateView(

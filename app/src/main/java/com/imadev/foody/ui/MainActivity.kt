@@ -9,20 +9,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.imadev.foody.R
 import com.imadev.foody.databinding.ActivityMainBinding
 import com.imadev.foody.ui.auth.SignInActivity
 import com.imadev.foody.utils.*
+import dagger.hilt.android.AndroidEntryPoint
 
 
 private const val TAG = "MainActivity"
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private var mMotionProgress: Float = 0f
@@ -133,6 +132,14 @@ class MainActivity : AppCompatActivity() {
             Firebase.auth.signOut()
             getSharedPreferences(Constants.FCM_TOKEN_PREF, MODE_PRIVATE).edit().clear().apply()
             moveTo(SignInActivity::class.java)
+        }
+
+
+        binding.bottomNav.setOnItemSelectedListener { item ->
+            // In order to get the expected behavior, you have to call default Navigation method manually
+            NavigationUI.onNavDestinationSelected(item, navController)
+
+            return@setOnItemSelectedListener true
         }
 
     }

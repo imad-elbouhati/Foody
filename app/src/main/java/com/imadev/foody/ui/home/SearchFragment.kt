@@ -11,7 +11,9 @@ import com.imadev.foody.R
 import com.imadev.foody.databinding.FragmentSearchBinding
 import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.ui.common.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SearchFragment :BaseFragment<FragmentSearchBinding,HomeViewModel>() {
 
     override val viewModel: HomeViewModel by viewModels()

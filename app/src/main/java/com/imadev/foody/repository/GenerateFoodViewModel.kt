@@ -1,4 +1,4 @@
-package com.imadev.foody.db
+package com.imadev.foody.repository
 
 import android.content.Context
 import android.graphics.Bitmap

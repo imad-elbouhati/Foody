@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.imadev.foody.R
 import com.imadev.foody.ui.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class FavoritesFragment : Fragment() {
 
     override fun onCreateView(

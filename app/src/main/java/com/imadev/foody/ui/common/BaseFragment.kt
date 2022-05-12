@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.utils.NavigationCommand
+import dagger.hilt.android.AndroidEntryPoint
 
 abstract class BaseFragment<V : ViewBinding, VM : BaseViewModel> : Fragment() {
 

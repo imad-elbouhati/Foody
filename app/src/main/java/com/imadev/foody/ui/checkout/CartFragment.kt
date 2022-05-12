@@ -19,10 +19,12 @@ import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.ui.common.BaseFragment
 import com.imadev.foody.utils.hide
 import com.imadev.foody.utils.show
+import dagger.hilt.android.AndroidEntryPoint
 
 
 private const val TAG = "CartFragment"
 
+@AndroidEntryPoint
 class CartFragment : BaseFragment<FragmentCartBinding, CheckoutViewModel>() {
 
     override val viewModel: CheckoutViewModel by activityViewModels()

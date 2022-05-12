@@ -10,7 +10,9 @@ import com.imadev.foody.databinding.ActivitySignInBinding
 import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.utils.applyFullscreen
 import com.imadev.foody.utils.moveTo
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SignInActivity : AppCompatActivity() {
 
 

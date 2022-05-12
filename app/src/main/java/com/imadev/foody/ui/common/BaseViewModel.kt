@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.NavDirections
 import com.imadev.foody.utils.Event
 import com.imadev.foody.utils.NavigationCommand
+import dagger.hilt.android.lifecycle.HiltViewModel
 
 abstract class BaseViewModel : ViewModel() {
     private val _navigation = MutableLiveData<Event<NavigationCommand>>()
