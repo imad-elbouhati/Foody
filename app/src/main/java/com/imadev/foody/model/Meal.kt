@@ -11,16 +11,15 @@ import kotlinx.parcelize.Parcelize
 data class Meal(
     @DocumentId
     val id: String? = null,
-    var name: String,
-    var price: Double,
-    var ingredient: List<String>,
+    var name: String = "",
+    var price: Double = 0.0,
+    var ingredient: List<String> = listOf(),
     var image: String? = null,
     var favorite: Boolean = false,
     var categoryId: String? = null,
     var quantity: Int = 0
 ) : Parcelable {
-    @Suppress("unused")
-    constructor() : this("", "", 0.0, listOf(), "", false, "", 0)
+
 
     @IgnoredOnParcel
     @Exclude

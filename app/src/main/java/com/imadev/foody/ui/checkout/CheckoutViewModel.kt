@@ -54,6 +54,10 @@ class CheckoutViewModel @Inject constructor(
         _cartList.removeAt(position)
     }
 
+    fun resetList() {
+        _cartList.clear()
+    }
+
     private val _cartIsEmpty = MutableLiveData<Boolean>()
     val cartIsEmpty: LiveData<Boolean> = _cartIsEmpty
 
