@@ -24,7 +24,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run Lint
-        run: gradlew lintDebug
+        run: ./gradlew lintDebug
 
       # Runs a set of commands using the runners shell
       - name: Upload html test report
