@@ -47,6 +47,7 @@ platform :android do
         firebase_app_distribution(
             app: "1:392557441259:android:5ad2893b6bba892aaaceae",
             testers: "dohalefhal4@gmail.com,elbouhatiimad@gmail.com",
+			release_notes_file: "fastlane/release_notes.txt",
             firebase_cli_token: "1//03f_87Ru6CS5NCgYIARAAGAMSNwF-L9IrPj638N-RetT1r77CY7yS2EkBEJwmgWjTNTbBTcp4bnOFs7UZoDd4_bTJwuD36RnP9MI"
         )
     end
