@@ -1,9 +1,10 @@
 package com.imadev.foody.ui.checkout
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.imadev.foody.model.Food
+import com.google.common.truth.Truth.assertThat
 import com.imadev.foody.model.Meal
 import com.imadev.foody.repository.FoodyRepoImpTest
+import com.imadev.foody.utils.getOrAwaitValue
 import junit.framework.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
@@ -55,6 +56,57 @@ class CheckoutViewModelTest {
 
         val total = viewModel.getTotal()
         assertEquals("40.5", total)
+    }
+
+
+    @Test
+    fun removeFromCart() {
+
+        val firstMeal = Meal(price = 10.0, quantity = 1)
+        val secondMeal = Meal(price = 10.0, quantity = 1)
+        val thirdMeal = Meal(price = 10.0, quantity = 2)
+
+        viewModel.addToCart(firstMeal)
+        viewModel.addToCart(secondMeal)
+        viewModel.addToCart(thirdMeal)
+
+        viewModel.removeFromCart(thirdMeal)
+
+        val currentList = listOf(firstMeal,secondMeal)
+
+        assertThat(viewModel.cartList).isEqualTo(currentList)
+
+    }
+
+
+    @Test
+    fun canProceedToPayment() {
+
+        val firstMeal = Meal(price = 10.0, quantity = 1)
+        val secondMeal = Meal(price = 10.0, quantity = 1)
+        val thirdMeal = Meal(price = 10.0, quantity = 2)
+
+        val forthMeal = Meal(price = 10.0, quantity = 0)
+
+        viewModel.addToCart(firstMeal)
+        viewModel.addToCart(secondMeal)
+        viewModel.addToCart(thirdMeal)
+
+
+        viewModel.observeQuantity()
+
+        var canProceed = viewModel.canProceedToPayment.getOrAwaitValue()
+
+        assertThat(canProceed).isTrue()
+
+
+        viewModel.addToCart(forthMeal)
+        viewModel.observeQuantity()
+        canProceed = viewModel.canProceedToPayment.getOrAwaitValue()
+
+
+        assertThat(canProceed).isFalse()
+
     }
 
 }
