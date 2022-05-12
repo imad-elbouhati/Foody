@@ -1,9 +1,8 @@
 <resources>
-    <string name="app_name">Foody</string>
+    <string name="app_name" translatable="false">Foody</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="go_back">Go back</string>
-    <string name="add_to_favorite">Add to favorite</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="go_back" >Go back</string>
     <string name="description">Description</string>
     <string name="add_to_cart">Add to cart</string>
     <string name="history">History</string>
@@ -22,7 +21,7 @@
     <string name="swipe_to_delete">Swipe to delete</string>
     <string name="swipe_on_item_to_delete">Swipe on item to delete</string>
     <string name="complete_order">Complete order</string>
-    <string name="price">%1$s MAD</string>
+    <string name="price" translatable="false">%1$s MAD</string>
     <string name="checkout">Checkout</string>
     <string name="delivery">Delivery</string>
     <string name="address_details">Address details</string>
@@ -36,17 +35,17 @@
     <string name="undo">Undo</string>
     <string name="order_delete_successfully">Order successfully deleted</string>
     <string name="map">Map</string>
-    <string name="select_this_adress">Select this adress</string>
+    <string name="select_this_adress">Select this address</string>
     <string name="ignore">Ignore</string>
     <string name="your_phone_number">Your phone number</string>
     <string name="next">Next</string>
     <string name="or">Or</string>
     <string name="sing_in_with_email">Sing in with email</string>
-    <string name="facebook">Facebook</string>
-    <string name="google">Google</string>
+    <string name="facebook" translatable="false">Facebook</string>
+    <string name="google" translatable="false">Google</string>
     <string name="code_verification">Code verification</string>
     <string name="phone_number">Phone number</string>
-    <string name="adress">Adress</string>
+    <string name="adress">Address</string>
     <string name="your_name">Your name</string>
     <string name="empty_cart">Empty cart</string>
     <string name="no_item_added_to_cart_yet">No item added to cart yet</string>
@@ -59,9 +58,9 @@
     <string name="facebook_client_token" translatable="false">90f42d1819c035b8c74760c1914ffce1</string>
 
 
-    <string name="channel_name">delivery_channel</string>
-    <string name="channel_description">channel for delivery app</string>
+    <string name="channel_name" translatable="false">delivery_channel</string>
+    <string name="channel_description" translatable="false">channel for delivery app</string>
     <string name="sign_in_with_facebook">Sign In With Facebook</string>
     <string name="sign_in_with_google">Sign In With Google</string>
-    <string name="app_logo">App Logo</string>
+    <string name="app_logo" translatable="false">App Logo</string>
 </resources>

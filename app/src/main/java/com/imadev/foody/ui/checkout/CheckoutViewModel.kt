@@ -1,15 +1,27 @@
 package com.imadev.foody.ui.checkout
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
+import com.google.firebase.firestore.auth.User
+import com.imadev.foody.db.FireStoreManager
+import com.imadev.foody.model.Client
 import com.imadev.foody.model.Meal
 import com.imadev.foody.ui.common.BaseViewModel
 import com.imadev.foody.utils.formatDecimal
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 private const val TAG = "CheckoutViewModel"
 
 class CheckoutViewModel : BaseViewModel() {
 
+    private val repository = FireStoreManager()
+
+    val client = MutableStateFlow<Client?>(null)
 
     private var _cartList: MutableList<Meal> = mutableListOf()
 
@@ -60,5 +72,12 @@ class CheckoutViewModel : BaseViewModel() {
         canProceedToPayment.postValue(cartList.fold(1) { acc, meal -> acc * meal.quantity } > 0)
     }
 
+
+    fun getClient(uid:String) = viewModelScope.launch {
+        repository.getClient(uid).collectLatest {
+            Log.d(TAG, "getClient: ")
+            client.emit(it)
+        }
+    }
 
 }

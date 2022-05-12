@@ -110,7 +110,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, AuthViewModel>() {
 
 
             override fun onSuccess(result: LoginResult) {
-                Log.d(TAG, "onSuccess: ${result?.accessToken?.token.toString()}")
                 handleFacebookAccessToken(result.accessToken)
             }
         })
