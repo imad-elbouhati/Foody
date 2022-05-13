@@ -14,7 +14,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.imadev.foody.R
 import com.imadev.foody.databinding.ActivityMainBinding
-import com.imadev.foody.ui.auth.SignInActivity
+import com.imadev.foody.ui.auth.LoginActivity
 import com.imadev.foody.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -131,7 +131,7 @@ class MainActivity : AppCompatActivity() {
         binding.signOut.setOnClickListener {
             Firebase.auth.signOut()
             getSharedPreferences(Constants.FCM_TOKEN_PREF, MODE_PRIVATE).edit().clear().apply()
-            moveTo(SignInActivity::class.java)
+            moveTo(LoginActivity::class.java)
         }
 
 

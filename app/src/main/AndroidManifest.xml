@@ -32,7 +32,7 @@
         </service>
 
         <activity
-            android:name=".ui.auth.SignInActivity"
+            android:name=".ui.auth.LoginActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
