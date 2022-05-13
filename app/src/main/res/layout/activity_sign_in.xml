@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/foody_background"
-    tools:context=".ui.auth.SignInActivity">
+    tools:context=".ui.auth.LoginActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView2"

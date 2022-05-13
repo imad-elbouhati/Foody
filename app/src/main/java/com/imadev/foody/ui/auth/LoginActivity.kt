@@ -13,7 +13,7 @@ import com.imadev.foody.utils.moveTo
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SignInActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
 
     private lateinit var binding: ActivitySignInBinding
