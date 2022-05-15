@@ -95,6 +95,7 @@
                     android:layout_marginTop="27dp"
                     android:textColor="@color/black"
                     android:textSize="17sp"
+                    android:hint="@string/name"
                     android:textStyle="bold"
                     tools:text="Imad El Bouhati" />
 
@@ -111,6 +112,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:textSize="15sp"
+                    android:hint="@string/no_address_selected"
                     tools:text="Hay Al Andalouss N 44 Tiflet Hay Al Andalouss N 44 TifletHay Al Andalouss N 44 Tiflet" />
 
                 <View
@@ -127,7 +129,8 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:textSize="15sp"
-                    tools:text="+212 624 52 47 10" />
+                    android:hint="@string/no_phone_number"
+                     />
 
             </LinearLayout>
 

@@ -32,7 +32,7 @@ class FoodyRepoImpTest : FoodyRepo {
     }
 
 
-    override suspend fun getClient(uid: String): Flow<Client> {
+    override suspend fun getClient(uid: String): Flow<Resource<Client>> {
         TODO("Not yet implemented")
     }
 }

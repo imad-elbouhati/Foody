@@ -1,17 +1,17 @@
 package com.imadev.foody.ui.checkout
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.imadev.foody.model.Client
 import com.imadev.foody.model.Meal
 import com.imadev.foody.repository.FoodyRepo
-import com.imadev.foody.repository.FoodyRepoImp
 import com.imadev.foody.ui.common.BaseViewModel
+import com.imadev.foody.utils.Resource
 import com.imadev.foody.utils.formatDecimal
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -24,7 +24,8 @@ class CheckoutViewModel @Inject constructor(
 ) : BaseViewModel() {
 
 
-    val client = MutableStateFlow<Client?>(null)
+    private val _client = MutableStateFlow<Resource<Client?>>(Resource.Loading())
+    val client = _client.asStateFlow()
 
     private var _cartList: MutableList<Meal> = mutableListOf()
 
@@ -82,8 +83,7 @@ class CheckoutViewModel @Inject constructor(
 
     fun getClient(uid:String) = viewModelScope.launch {
         repository.getClient(uid).collectLatest {
-            Log.d(TAG, "getClient: ")
-            client.emit(it)
+            _client.emit(it)
         }
     }
 

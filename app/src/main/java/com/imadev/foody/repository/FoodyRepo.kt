@@ -15,6 +15,6 @@ interface FoodyRepo {
 
     suspend fun getCategories(): Flow<Resource<List<Category?>>>
 
-    suspend fun getClient(uid:String):Flow<Client>
+    suspend fun getClient(uid:String):Flow<Resource<Client?>>
 
 }

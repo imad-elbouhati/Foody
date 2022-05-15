@@ -36,8 +36,7 @@ class FoodyRepoImp @Inject constructor(
         }
     }
 
-    override suspend fun getClient(uid: String): Flow<Client> = flow {
-
+    override suspend fun getClient(uid: String) = safeFirebaseCall {
 
         clientsCollection.document(uid).get().await().toObject(Client::class.java)
     }
