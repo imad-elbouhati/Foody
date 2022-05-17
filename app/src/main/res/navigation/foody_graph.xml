@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/foody_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/checkoutFragment">
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.imadev.foody.ui.home.HomeFragment"
@@ -47,7 +47,11 @@
     <fragment
         android:id="@+id/checkoutFragment"
         android:name="com.imadev.foody.ui.checkout.CheckoutFragment"
-        tools:layout="@layout/fragment_checkout" />
+        tools:layout="@layout/fragment_checkout" >
+        <action
+            android:id="@+id/action_checkoutFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/mapsFragment"
         android:name="com.imadev.foody.ui.map.MapsFragment"

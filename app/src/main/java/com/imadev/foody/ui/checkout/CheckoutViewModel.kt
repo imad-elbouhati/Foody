@@ -1,15 +1,21 @@
 package com.imadev.foody.ui.checkout
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.imadev.foody.fcm.remote.PushNotification
+import com.imadev.foody.model.Address
 import com.imadev.foody.model.Client
 import com.imadev.foody.model.Meal
+import com.imadev.foody.model.Order
 import com.imadev.foody.repository.FoodyRepo
 import com.imadev.foody.ui.common.BaseViewModel
+import com.imadev.foody.utils.Constants
 import com.imadev.foody.utils.Resource
 import com.imadev.foody.utils.formatDecimal
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
@@ -28,8 +34,15 @@ class CheckoutViewModel @Inject constructor(
     val client = _client.asStateFlow()
 
     private var _cartList: MutableList<Meal> = mutableListOf()
-
     val cartList = _cartList as List<Meal>
+
+
+    var order = Order()
+        private set
+
+    fun setOrder(order: Order) {
+        this.order = order
+    }
 
     fun getTotal(): String {
         return formatDecimal(_cartList.sumOf { it.quantity * it.price })
@@ -81,10 +94,34 @@ class CheckoutViewModel @Inject constructor(
     }
 
 
-    fun getClient(uid:String) = viewModelScope.launch {
+    fun getClient(uid: String) = viewModelScope.launch {
         repository.getClient(uid).collectLatest {
             _client.emit(it)
         }
     }
+
+
+    fun updateAddress(uid: String, address: Address) = GlobalScope.launch {
+        repository.updateField(Constants.CLIENTS_COLLECTION, uid, "address", address).collect {
+            when (it) {
+                is Resource.Error -> {
+                    Log.d(TAG, "updateAddress: ${it.error?.message}")
+                }
+                is Resource.Loading -> {
+
+
+                }
+                is Resource.Success -> {
+                    Log.d(TAG, "updateAddress: success")
+                }
+            }
+        }
+    }
+
+
+    fun sendNotification(pushNotification: PushNotification) = viewModelScope.launch {
+        repository.sendNotification(pushNotification)
+    }
+
 
 }

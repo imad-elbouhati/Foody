@@ -52,4 +52,10 @@
     <string name="no_address_selected">Aucune adresse sélectionnée</string>
     <string name="no_phone_number">Pas de numéro de téléphone</string>
     <string name="delicious_nfood_for_you">Plat délicieux \npour vous</string>
+    <string name="something_went_wrong">Quelque chose a mal tourné.</string>
+    <string name="please_add_your_address">Veuillez ajouter votre adresse</string>
+    <string name="please_add_your_phone_number">Veuillez ajouter votre numéro de téléphone</string>
+    <string name="please_select_a_payment_method">Veuillez choisir un moyen de paiement</string>
+    <string name="please_write_a_valid_number">Veuillez saisir un numéro de téléphone valide</string>
+    <string name="make_order">Passer la commande</string>
 </resources>

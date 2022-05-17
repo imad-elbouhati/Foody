@@ -16,7 +16,7 @@ import com.imadev.foody.model.Meal
 import com.imadev.foody.ui.checkout.CheckoutViewModel
 import com.imadev.foody.ui.common.BaseFragment
 import com.imadev.foody.ui.home.HomeViewModel
-import com.imadev.foody.utils.Constants.Companion.MEAL_ARG
+import com.imadev.foody.utils.Constants.MEAL_ARG
 import com.imadev.foody.utils.loadFromUrl
 import com.imadev.foody.utils.setIcon
 import dagger.hilt.android.AndroidEntryPoint

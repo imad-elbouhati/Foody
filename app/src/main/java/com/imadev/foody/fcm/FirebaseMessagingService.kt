@@ -14,12 +14,12 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.imadev.foody.R
-import com.imadev.foody.utils.Constants.Companion.FCM_TOKEN
-import com.imadev.foody.utils.Constants.Companion.FCM_TOKEN_PREF
-import com.imadev.foody.utils.Constants.Companion.TOKEN_FIELD
-import com.imadev.foody.utils.Constants.Companion.CLIENTS_COLLECTION
-import com.imadev.foody.utils.Constants.Companion.NOTIFICATION_ID
-import com.imadev.foody.utils.Constants.Companion.ORDER_CHANNEL_ID
+import com.imadev.foody.utils.Constants.CLIENTS_COLLECTION
+import com.imadev.foody.utils.Constants.FCM_TOKEN
+import com.imadev.foody.utils.Constants.FCM_TOKEN_PREF
+import com.imadev.foody.utils.Constants.NOTIFICATION_ID
+import com.imadev.foody.utils.Constants.ORDER_CHANNEL_ID
+import com.imadev.foody.utils.Constants.TOKEN_FIELD
 
 
 private const val TAG = "FirebaseMessagingServic"
@@ -50,13 +50,18 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     private fun createNotification(remoteMessage: RemoteMessage) {
         val notification = remoteMessage.notification
-
+        
         createNotificationChannel()
+
         val builder = NotificationCompat.Builder(this, ORDER_CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setContentTitle(notification?.title)
             .setContentText(notification?.body)
             .setPriority(NotificationCompat.DEFAULT_SOUND)
+
+        Log.d(TAG, "createNotification: ${remoteMessage.data?.toString()}")
+
+        Log.d(TAG, "createNotification: ${notification?.title}")
 
 
         with(NotificationManagerCompat.from(this)) {

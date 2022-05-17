@@ -67,4 +67,10 @@
     <string name="no_address_selected">No address selected</string>
     <string name="no_phone_number">No phone number</string>
     <string name="delicious_nfood_for_you">Delicious \nfood for you</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="please_add_your_address">Please add your address</string>
+    <string name="please_add_your_phone_number">Please add your  phone number</string>
+    <string name="please_select_a_payment_method">Please select a payment method</string>
+    <string name="please_write_a_valid_number">Please enter a valid number</string>
+    <string name="make_order">Make the order</string>
 </resources>

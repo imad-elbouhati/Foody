@@ -60,14 +60,7 @@
                 android:textSize="17sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:text="@string/change"
-                android:textColor="@color/foody_orange"
-                android:textSize="15sp" />
+
         </RelativeLayout>
 
         <com.google.android.material.card.MaterialCardView
@@ -88,32 +81,18 @@
                 android:orientation="vertical"
                 android:padding="8dp">
 
+
                 <TextView
                     android:id="@+id/client_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="27dp"
+                    android:hint="@string/name"
                     android:textColor="@color/black"
                     android:textSize="17sp"
-                    android:hint="@string/name"
                     android:textStyle="bold"
                     tools:text="Imad El Bouhati" />
 
-                <View
-                    android:layout_width="280dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/line_drawable" />
-
-                <TextView
-                    android:id="@+id/address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:hint="@string/no_address_selected"
-                    tools:text="Hay Al Andalouss N 44 Tiflet Hay Al Andalouss N 44 TifletHay Al Andalouss N 44 Tiflet" />
 
                 <View
                     android:layout_width="280dp"
@@ -122,15 +101,76 @@
                     android:layout_marginBottom="8dp"
                     android:background="@drawable/line_drawable" />
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/phone"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/change_adress"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:hint="@string/no_address_selected"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        tools:text="Hay Al Andalouss N 44 Tiflet Hay Al Andalouss N 44 TifletHay Al Andalouss N 44 Tiflet" />
+
+                    <TextView
+                        android:id="@+id/change_adress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/change"
+                        android:textColor="@color/foody_orange"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+
+                <View
+                    android:layout_width="280dp"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:hint="@string/no_phone_number"
-                     />
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/line_drawable" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <EditText
+                        android:id="@+id/phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/change_phone"
+                        android:background="@android:color/transparent"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:hint="@string/no_phone_number"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/change_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/change"
+                        android:textColor="@color/foody_orange"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
 
             </LinearLayout>
 
@@ -267,7 +307,7 @@
             android:layout_height="70dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/rounded_button"
-            android:text="@string/proceed_to_payment"
+            android:text="@string/make_order"
             android:textAllCaps="false"
             android:textSize="17sp"
             android:textStyle="bold"

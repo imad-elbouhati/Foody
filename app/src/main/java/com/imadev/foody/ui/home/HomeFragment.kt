@@ -21,7 +21,7 @@ import com.imadev.foody.model.Category
 import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.ui.checkout.CheckoutViewModel
 import com.imadev.foody.ui.common.BaseFragment
-import com.imadev.foody.utils.Constants.Companion.MEAL_ARG
+import com.imadev.foody.utils.Constants.MEAL_ARG
 import com.imadev.foody.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
