@@ -52,16 +52,18 @@
         <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/drawable/ic_cart.xml" value="0.1845" />
         <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/drawable/ic_success_24.xml" value="0.1995" />
         <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/drawable/rounded_button.xml" value="0.1" />
-        <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/activity_main.xml" value="0.16292134831460675" />
         <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/bubble_cart.xml" value="1.25" />
         <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/fragment_cart.xml" value="0.22" />
         <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/fragment_checkout.xml" value="0.3593429158110883" />
-        <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/fragment_food_details.xml" value="0.12454710144927536" />
+        <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/fragment_favorites.xml" value="0.18229166666666666" />
+        <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/fragment_food_details.xml" value="0.33" />
         <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/fragment_login.xml" value="0.10099637681159421" />
         <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/fragment_maps.xml" value="0.17481884057971014" />
         <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/fragment_search.xml" value="0.5" />
         <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/fragment_sign_up.xml" value="0.10099637681159421" />
+        <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/item_row_favorite_layout.xml" value="0.18229166666666666" />
         <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/item_row_food_hom.xml" value="0.18" />
         <entry key="..\:/Users/hp/StudioProjects/Foody/app/src/main/res/layout/item_row_order_layout.xml" value="0.12454710144927536" />
       </map>

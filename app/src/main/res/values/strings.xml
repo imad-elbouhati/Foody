@@ -73,4 +73,6 @@
     <string name="please_select_a_payment_method">Please select a payment method</string>
     <string name="please_write_a_valid_number">Please enter a valid number</string>
     <string name="make_order">Make the order</string>
+    <string name="new_order_messgae">Hello %1$s! you have new order</string>
+    <string name="new_odrer" >New order</string>
 </resources>

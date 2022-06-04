@@ -20,6 +20,7 @@ import com.imadev.foody.utils.Constants.FCM_TOKEN_PREF
 import com.imadev.foody.utils.Constants.NOTIFICATION_ID
 import com.imadev.foody.utils.Constants.ORDER_CHANNEL_ID
 import com.imadev.foody.utils.Constants.TOKEN_FIELD
+import java.lang.Exception
 
 
 private const val TAG = "FirebaseMessagingServic"
@@ -48,9 +49,10 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     }
 
 
+    
     private fun createNotification(remoteMessage: RemoteMessage) {
         val notification = remoteMessage.notification
-        
+        Log.d(TAG, "createNotification: ${notification?.body}")
         createNotificationChannel()
 
         val builder = NotificationCompat.Builder(this, ORDER_CHANNEL_ID)
@@ -59,7 +61,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             .setContentText(notification?.body)
             .setPriority(NotificationCompat.DEFAULT_SOUND)
 
-        Log.d(TAG, "createNotification: ${remoteMessage.data?.toString()}")
 
         Log.d(TAG, "createNotification: ${notification?.title}")
 

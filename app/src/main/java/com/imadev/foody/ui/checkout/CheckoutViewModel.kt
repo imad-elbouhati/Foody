@@ -5,10 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.imadev.foody.fcm.remote.PushNotification
-import com.imadev.foody.model.Address
-import com.imadev.foody.model.Client
-import com.imadev.foody.model.Meal
-import com.imadev.foody.model.Order
+import com.imadev.foody.model.*
 import com.imadev.foody.repository.FoodyRepo
 import com.imadev.foody.ui.common.BaseViewModel
 import com.imadev.foody.utils.Constants
@@ -16,9 +13,7 @@ import com.imadev.foody.utils.Resource
 import com.imadev.foody.utils.formatDecimal
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -35,6 +30,10 @@ class CheckoutViewModel @Inject constructor(
 
     private var _cartList: MutableList<Meal> = mutableListOf()
     val cartList = _cartList as List<Meal>
+
+    private var _availableDeliveryUsers =
+        MutableSharedFlow<Resource<List<DeliveryUser?>>>()
+    val availableDeliveryUsers = _availableDeliveryUsers.asSharedFlow()
 
 
     var order = Order()
@@ -119,9 +118,36 @@ class CheckoutViewModel @Inject constructor(
     }
 
 
-    fun sendNotification(pushNotification: PushNotification) = viewModelScope.launch {
-        repository.sendNotification(pushNotification)
+    private fun sendNotification(pushNotification: PushNotification) = viewModelScope.launch {
+        val response = repository.sendNotification(pushNotification)
+        Log.d(TAG, "sendNotification: ${response.isSuccessful}")
     }
 
+
+    fun getAvailableDeliveryUsers() {
+        viewModelScope.launch {
+            repository.getAvailableDeliveryUsers().collect {
+                _availableDeliveryUsers.emit(it)
+            }
+        }
+    }
+
+
+    fun sendOrderToDeliveryUser(order: Order,pushNotification: PushNotification) = viewModelScope.launch {
+        repository.sendOrderToDeliveryUser(order).collectLatest { 
+            when(it) {
+                is Resource.Error ->{
+                    Log.d(TAG, "sendOrderToDeliveryUser: ${it.error?.message}")
+                }
+                is Resource.Loading -> {
+
+                }
+                is Resource.Success -> {
+
+                }
+            }
+        }
+        sendNotification(pushNotification)
+    }
 
 }

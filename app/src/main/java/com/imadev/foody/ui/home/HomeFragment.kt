@@ -25,7 +25,6 @@ import com.imadev.foody.utils.Constants.MEAL_ARG
 import com.imadev.foody.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -49,6 +48,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
     override fun onResume() {
         setToolbarTitle(activity as MainActivity)
+
         updateCartCounter()
 
 
@@ -188,9 +188,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
     override fun setToolbarTitle(activity: MainActivity) {
         activity.apply {
-            setToolbarTitle(R.string.home)
-            setToolbarIcon(R.drawable.ic_cart, false)
-            getToolbarIcon().setOnClickListener {
+
+            getHomeToolbarIcon().setOnClickListener {
                 viewModel.navigate(R.id.action_homeFragment_to_cartFragment)
             }
         }
@@ -198,7 +197,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
 
     override fun onPause() {
-        (activity as MainActivity).setToolbarIcon(R.drawable.ic_cart, true)
         super.onPause()
     }
 

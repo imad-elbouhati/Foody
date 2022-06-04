@@ -78,6 +78,22 @@ class MainActivity : AppCompatActivity() {
             } else {
                 binding.menuIc.hide()
             }
+
+            when (currentDestinationId) {
+                R.id.homeFragment -> {
+                    setToolbarTitle(R.string.home)
+                    setHomeToolbarIcon()
+                }
+
+                R.id.foodDetailsFragment -> {
+                    setFavoriteToolbarIcon()
+                }
+                else -> {
+                    binding.favoriteIcon.hide()
+                    binding.bubbleCart.hide()
+                }
+
+            }
         }
 
 
@@ -155,23 +171,24 @@ class MainActivity : AppCompatActivity() {
         binding.toolbarTitle.text = getString(title)
     }
 
-    fun setToolbarIcon(@DrawableRes icon: Int, hide: Boolean = false) {
-
-        if (hide) {
-            binding.bubbleCart.hide()
-            return
-        }
-        binding.bubbleCart.toolbarIcon.setImageResource(icon)
+    fun setHomeToolbarIcon() {
+        binding.favoriteIcon.hide()
         binding.bubbleCart.show()
+    }
 
 
+    fun setFavoriteToolbarIcon() {
+        binding.bubbleCart.hide()
+        binding.favoriteIcon.show()
     }
 
 
     fun getBubbleCart() = binding.bubbleCart
 
 
-    fun getToolbarIcon() = binding.bubbleCart.toolbarIcon
+    fun getHomeToolbarIcon() = binding.bubbleCart.toolbarIcon
+
+    fun getFavoriteToolbarIcon() = binding.favoriteIcon
 
     fun getToolbar() = binding.toolbar
 

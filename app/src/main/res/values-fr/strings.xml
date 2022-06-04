@@ -58,4 +58,6 @@
     <string name="please_select_a_payment_method">Veuillez choisir un moyen de paiement</string>
     <string name="please_write_a_valid_number">Veuillez saisir un numéro de téléphone valide</string>
     <string name="make_order">Passer la commande</string>
+    <string name="new_order_messgae">Bonjour %1$s ! Vous avez une nouvelle commande.</string>
+    <string name="new_odrer" >Nouvelle commande</string>
 </resources>

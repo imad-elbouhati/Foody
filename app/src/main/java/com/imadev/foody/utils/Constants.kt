@@ -9,8 +9,11 @@ object Constants {
     const val CATEGORY_SNACKS = "SNACKS"
     const val CATEGORY_COLLECTION = "categories"
     const val MEALS_COLLECTION = "meals"
+    const val ORDERS_COLLECTION = "orders"
 
     const val CLIENTS_COLLECTION = "clients"
+    const val DELIVERY_USERS_COLLECTION = "delivery-users"
+
 
     const val CATEGORY_ID = "categoryId"
     const val RC_SIGN_IN = 100
@@ -19,7 +22,6 @@ object Constants {
     const val FCM_TOKEN = "FCM_TOKEN"
     const val ORDER_CHANNEL_ID = "ORDER_CHANNEL_ID"
     const val NOTIFICATION_ID = 1
-    const val DELIVERY_USERS_COLLECTION = "delivery-users"
     const val TOKEN_FIELD = "token"
 
     const val PHONE_NUMBER_LENGTH = 14
@@ -33,7 +35,7 @@ object Constants {
     const val SERVER_KEY = "AAAAW2Y_MOs:APA91bHouBRzJZ2R-ELsHDipNEEJhagmGMKQrqAQv9NN3bgVoZSN-THkyuBLRZAoXR-kkGOPOcC_P9YLRXBwpnIuMttSN30vB4Tl7oTVIvDj6NeVOx7rnk1QKa12RE2iUAI9avvMJm6e"
     const val CONTENT_TYPE = "application/json"
 
-    const val TO = "dhdMB5MsSg6hJc5ZTc0EVu:APA91bGtCQoUmLKxOMbFi8bJL3vUWlFPCXlaJP3Aub_iwmNcL9CQf1tD0LXjO0THrGdfLIJcDr8I-gbEVRqUREz00iYLqcE-uZpQgkae3_nM8bpg6U0PysKxoNKv1n6aX3Oh1OeTIid"
+
 
 
 }

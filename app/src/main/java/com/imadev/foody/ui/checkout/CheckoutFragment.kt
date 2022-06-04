@@ -24,7 +24,6 @@ import com.imadev.foody.ui.map.MapsViewModel
 import com.imadev.foody.utils.Constants.MOROCCO_PREFIX_PHONE_NUMBER
 import com.imadev.foody.utils.Constants.PHONE_NUMBER_LENGTH
 import com.imadev.foody.utils.Constants.STRING_LENGTH
-import com.imadev.foody.utils.Constants.TO
 import com.imadev.foody.utils.Resource
 import com.imadev.foody.utils.collectFlow
 import com.imadev.foody.utils.stickPrefix
@@ -52,6 +51,9 @@ class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CheckoutViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+
 
         FirebaseAuth.getInstance().uid?.let {
             uid = it
@@ -204,31 +206,58 @@ class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CheckoutViewModel
         }
 
 
-        val order = mPaymentMethod?.let {
-            Order(
-                orderNumber = getRandomString(),
-                date = Date().time,
-                meals = viewModel.cartList,
-                client = mClient,
-                paymentMethod = it
-            )
-        }
+        processTheOrder()
 
-        order?.let {
-            MyFirebaseMessagingService.getToken(requireContext())?.let { it1 ->
-                PushNotification(
-                    it, Notification("Body message", "Hello ${mClient?.username}"),
-                    it1
-                )
-            }
-        }?.let {
-            viewModel.sendNotification(
-                it
-            )
-        }
-
-        Log.d(TAG, "onClick: $order")
     }
+
+
+    private fun processTheOrder() {
+
+
+        viewModel.getAvailableDeliveryUsers()
+
+
+        viewModel.availableDeliveryUsers.collectFlow(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Error -> {
+                    Log.d(TAG, "processTheOrder: ${it.error?.message}")
+                }
+                is Resource.Loading -> {
+
+                }
+                is Resource.Success -> {
+
+                    val deliveryUser = it.data?.get(0)
+
+                    val order = mPaymentMethod?.let { payment ->
+                        Order(
+                            orderNumber = getRandomString(),
+                            date = Date().time,
+                            meals = viewModel.cartList,
+                            client = mClient,
+                            paymentMethod = payment,
+                            to = deliveryUser?.id
+                        )
+                    }
+
+
+                    val notification = Notification(
+                        getString(R.string.new_odrer),
+                        getString(R.string.new_order_messgae, deliveryUser?.username)
+                    )
+                    order?.let {
+                        val pushNotification = PushNotification(notification, deliveryUser?.token)
+
+                        viewModel.sendOrderToDeliveryUser(order, pushNotification)
+                    }
+
+                }
+            }
+        }
+
+
+    }
+
 
     override fun setToolbarTitle(activity: MainActivity) {
         activity.setToolbarTitle(R.string.checkout)

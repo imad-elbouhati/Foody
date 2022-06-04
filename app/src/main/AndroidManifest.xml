@@ -22,14 +22,8 @@
         <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
 
 
-        <service
-            android:name=".fcm.MyFirebaseMessagingService"
-            android:stopWithTask="false"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
+
+        <service android:name=".fcm.MyFirebaseMessagingService"/>
 
         <activity
             android:name=".ui.auth.LoginActivity"

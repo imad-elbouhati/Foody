@@ -1,10 +1,7 @@
 package com.imadev.foody.repository
 
-import com.google.firebase.firestore.CollectionReference
 import com.imadev.foody.fcm.remote.PushNotification
-import com.imadev.foody.model.Category
-import com.imadev.foody.model.Client
-import com.imadev.foody.model.Meal
+import com.imadev.foody.model.*
 import com.imadev.foody.utils.Resource
 import kotlinx.coroutines.flow.Flow
 import okhttp3.ResponseBody
@@ -28,4 +25,8 @@ interface FoodyRepo {
 
     suspend fun sendNotification(pushNotification: PushNotification): Response<ResponseBody>
 
+
+    suspend fun getAvailableDeliveryUsers(): Flow<Resource<List<DeliveryUser?>>>
+
+    suspend fun sendOrderToDeliveryUser(order: Order): Flow<Resource<Void?>>
 }
