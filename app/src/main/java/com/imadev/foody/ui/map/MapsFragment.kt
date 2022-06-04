@@ -7,17 +7,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.imadev.foody.R
 import com.imadev.foody.databinding.FragmentMapsBinding
 import com.imadev.foody.model.Address
+import com.imadev.foody.model.LatLng
 import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.ui.common.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,7 +29,7 @@ class MapsFragment : BaseFragment<FragmentMapsBinding, MapsViewModel>(), OnMapRe
 
     private lateinit var map: GoogleMap
 
-    override val viewModel: MapsViewModel by viewModels()
+    override val viewModel: MapsViewModel by activityViewModels()
 
     override fun createViewBinding(
         inflater: LayoutInflater,
@@ -58,7 +58,7 @@ class MapsFragment : BaseFragment<FragmentMapsBinding, MapsViewModel>(), OnMapRe
 
 
         map.clear()
-        val rabat = LatLng(33.966304, -6.8549541)
+        val rabat = com.google.android.gms.maps.model.LatLng(33.966304, -6.8549541)
         val rabatMarker = map.addMarker(MarkerOptions().position(rabat).title(""))
         rabatMarker?.isDraggable = true
 
@@ -81,19 +81,30 @@ class MapsFragment : BaseFragment<FragmentMapsBinding, MapsViewModel>(), OnMapRe
         view?.findViewById<Button>(R.id.choose_location)?.setOnClickListener {
             rabatMarker?.let {
                 val geocoder = Geocoder(requireContext(), Locale.getDefault())
+                val latitude = rabatMarker.position.latitude
+                val longitude = rabatMarker.position.longitude
+
                 val addresses = geocoder.getFromLocation(
-                    rabatMarker.position.latitude,
-                    rabatMarker.position.longitude,
+                    latitude,
+                    longitude,
                     1
                 )
                 val address: String? = addresses[0].getAddressLine(0)
                 val city: String? = addresses[0].locality
                 val state: String? = addresses[0].adminArea
                 val country: String? = addresses[0].countryName
-                val myAddress = Address(city, state, country, address)
+
+
+                val myAddress = Address(city, state, country, address, LatLng(latitude, longitude))
 
                 Log.d(TAG, "onMapReady: $myAddress")
-                Toast.makeText(requireContext(), myAddress.toString(), Toast.LENGTH_SHORT).show()
+
+
+                viewModel.address.value = myAddress
+
+                findNavController().popBackStack()
+
+
             }
         }
 

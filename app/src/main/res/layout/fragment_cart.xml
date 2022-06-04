@@ -120,6 +120,8 @@
             android:layout_below="@+id/cart_ic"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:textAlignment="center"
             android:text="@string/no_item_added_to_cart_yet"
             android:textColor="@color/black"
             android:textSize="28sp"

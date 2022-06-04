@@ -34,8 +34,8 @@ import com.imadev.foody.model.Client
 import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.ui.common.BaseFragment
 import com.imadev.foody.utils.Constants
-import com.imadev.foody.utils.Constants.Companion.CLIENTS_COLLECTION
-import com.imadev.foody.utils.Constants.Companion.RC_SIGN_IN
+import com.imadev.foody.utils.Constants.CLIENTS_COLLECTION
+import com.imadev.foody.utils.Constants.RC_SIGN_IN
 import com.imadev.foody.utils.moveTo
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

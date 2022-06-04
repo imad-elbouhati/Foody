@@ -1,5 +1,6 @@
 package com.imadev.foody.utils
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -8,10 +9,12 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.view.View
 import android.view.WindowInsets
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.core.app.ActivityCompat.finishAffinity
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.bumptech.glide.Glide
@@ -90,4 +93,16 @@ fun ViewBinding.applyFullscreen() {
                     View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
     }
 
+}
+
+
+
+@SuppressLint("SetTextI18n")
+fun EditText.stickPrefix(prefix: String) {
+    this.addTextChangedListener(afterTextChanged = {
+        if (!it.toString().startsWith(prefix) && it?.isNotEmpty() == true) {
+            this.setText(prefix + this.text)
+            this.setSelection(this.length())
+        }
+    })
 }

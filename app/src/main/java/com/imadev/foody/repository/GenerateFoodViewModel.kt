@@ -15,11 +15,11 @@ import com.google.firebase.storage.FirebaseStorage
 import com.imadev.foody.R
 import com.imadev.foody.model.Category
 import com.imadev.foody.model.Meal
-import com.imadev.foody.utils.Constants.Companion.CATEGORY_COLLECTION
-import com.imadev.foody.utils.Constants.Companion.CATEGORY_DRINKS
-import com.imadev.foody.utils.Constants.Companion.CATEGORY_FOODS
-import com.imadev.foody.utils.Constants.Companion.CATEGORY_SNACKS
-import com.imadev.foody.utils.Constants.Companion.MEALS_COLLECTION
+import com.imadev.foody.utils.Constants.CATEGORY_COLLECTION
+import com.imadev.foody.utils.Constants.CATEGORY_DRINKS
+import com.imadev.foody.utils.Constants.CATEGORY_FOODS
+import com.imadev.foody.utils.Constants.CATEGORY_SNACKS
+import com.imadev.foody.utils.Constants.MEALS_COLLECTION
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow

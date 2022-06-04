@@ -63,4 +63,16 @@
     <string name="sign_in_with_facebook">Sign In With Facebook</string>
     <string name="sign_in_with_google">Sign In With Google</string>
     <string name="app_logo" translatable="false">App Logo</string>
+    <string name="name">Name</string>
+    <string name="no_address_selected">No address selected</string>
+    <string name="no_phone_number">No phone number</string>
+    <string name="delicious_nfood_for_you">Delicious \nfood for you</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="please_add_your_address">Please add your address</string>
+    <string name="please_add_your_phone_number">Please add your  phone number</string>
+    <string name="please_select_a_payment_method">Please select a payment method</string>
+    <string name="please_write_a_valid_number">Please enter a valid number</string>
+    <string name="make_order">Make the order</string>
+    <string name="new_order_messgae">Hello %1$s! you have new order</string>
+    <string name="new_odrer" >New order</string>
 </resources>

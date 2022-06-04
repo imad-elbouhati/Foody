@@ -1,1 +1,1 @@
-In this release I've added french translations
+In this release I added favorite food functionality
