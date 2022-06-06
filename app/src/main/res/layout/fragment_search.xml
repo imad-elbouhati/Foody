@@ -29,7 +29,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent=".9" />
 
-    <SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/search_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -42,4 +42,16 @@
         app:layout_constraintTop_toBottomOf="@+id/top_guideline" />
 
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/search_view"
+        app:layout_constraintStart_toStartOf="@+id/search_view"
+        app:layout_constraintTop_toBottomOf="@+id/search_view"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/item_row_food_hom" />
 </androidx.constraintlayout.widget.ConstraintLayout>

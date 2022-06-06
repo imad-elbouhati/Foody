@@ -59,5 +59,9 @@
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.imadev.foody.ui.home.SearchFragment"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_foodDetailsFragment"
+            app:destination="@id/foodDetailsFragment" />
+    </fragment>
 </navigation>

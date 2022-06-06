@@ -29,4 +29,7 @@ interface FoodyRepo {
     suspend fun getAvailableDeliveryUsers(): Flow<Resource<List<DeliveryUser?>>>
 
     suspend fun sendOrderToDeliveryUser(order: Order): Flow<Resource<Void?>>
+
+    suspend fun getMeals(): Flow<Resource<List<Meal?>>>
+
 }

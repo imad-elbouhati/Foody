@@ -18,6 +18,7 @@ import com.imadev.foody.R
 import com.imadev.foody.adapter.MealListHomeAdapter
 import com.imadev.foody.databinding.FragmentHomeBinding
 import com.imadev.foody.model.Category
+import com.imadev.foody.model.Meal
 import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.ui.checkout.CheckoutViewModel
 import com.imadev.foody.ui.common.BaseFragment
@@ -128,7 +129,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                     is Resource.Success -> {
                         (activity as MainActivity).hideProgressBar()
                         data?.let {
-                            mealAdapter = MealListHomeAdapter(data)
+                            mealAdapter = MealListHomeAdapter(data as ArrayList<Meal?>)
                             Log.d(TAG, "getMealsByCategory: $data")
                             binding.foodList.adapter = mealAdapter
                             mealAdapter?.setItemClickListener { meal, _ ->
