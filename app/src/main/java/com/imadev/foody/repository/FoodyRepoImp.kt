@@ -95,4 +95,10 @@ class FoodyRepoImp @Inject constructor(
         safeFirebaseCall {
             ordersCollection.document(order.date.toString()).set(order).await()
         }
+
+    override suspend fun getMeals(): Flow<Resource<List<Meal?>>> = safeFirebaseCall {
+        mealsCollection.get().await().documents.map {
+            it.toObject(Meal::class.java)
+        }
+    }
 }

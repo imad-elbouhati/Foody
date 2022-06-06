@@ -39,4 +39,10 @@ class HomeViewModel @Inject constructor(
            _meals.emit(it)
         }
     }
+
+    fun getMeals() = viewModelScope.launch {
+        repository.getMeals().collect {
+            _meals.emit(it)
+        }
+    }
 }
