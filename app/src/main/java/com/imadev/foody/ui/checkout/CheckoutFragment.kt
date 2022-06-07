@@ -11,7 +11,6 @@ import androidx.fragment.app.activityViewModels
 import com.google.firebase.auth.FirebaseAuth
 import com.imadev.foody.R
 import com.imadev.foody.databinding.FragmentCheckoutBinding
-import com.imadev.foody.fcm.MyFirebaseMessagingService
 import com.imadev.foody.fcm.remote.Notification
 import com.imadev.foody.fcm.remote.PushNotification
 import com.imadev.foody.model.Address
@@ -195,7 +194,7 @@ class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CheckoutViewModel
                     resources.getString(R.string.please_write_a_valid_number),
                     Toast.LENGTH_LONG
                 ).show()
-                // return
+                return
             }
         }
 
@@ -220,10 +219,12 @@ class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CheckoutViewModel
         viewModel.availableDeliveryUsers.collectFlow(viewLifecycleOwner) {
             when (it) {
                 is Resource.Error -> {
+                    (activity as MainActivity).hideProgressBar()
+
                     Log.d(TAG, "processTheOrder: ${it.error?.message}")
                 }
                 is Resource.Loading -> {
-
+                    (activity as MainActivity).showProgressBar()
                 }
                 is Resource.Success -> {
 
@@ -249,6 +250,8 @@ class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CheckoutViewModel
                         val pushNotification = PushNotification(notification, deliveryUser?.token)
 
                         viewModel.sendOrderToDeliveryUser(order, pushNotification)
+
+                        observeNotification()
                     }
 
                 }
@@ -256,6 +259,16 @@ class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CheckoutViewModel
         }
 
 
+    }
+
+    private fun observeNotification() {
+        viewModel.notificationSent.collectFlow(viewLifecycleOwner) { sent ->
+            if (sent) {
+                (activity as MainActivity).hideProgressBar()
+                viewModel.navigate(R.id.action_checkoutFragment_to_homeFragment)
+
+            }
+        }
     }
 
 

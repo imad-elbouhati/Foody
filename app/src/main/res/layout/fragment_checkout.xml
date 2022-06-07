@@ -310,7 +310,9 @@
             android:text="@string/make_order"
             android:textAllCaps="false"
             android:textSize="17sp"
+            android:layout_marginBottom="56dp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/right_guideline"
             app:layout_constraintStart_toStartOf="@+id/left_guideline"
             app:layout_constraintTop_toBottomOf="@+id/total_tv" />
