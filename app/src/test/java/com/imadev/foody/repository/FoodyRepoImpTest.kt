@@ -57,4 +57,8 @@ class FoodyRepoImpTest : FoodyRepo {
     override suspend fun sendOrderToDeliveryUser(order: Order): Flow<Resource<Void?>> {
         TODO("Not yet implemented")
     }
+
+    override suspend fun getMeals(): Flow<Resource<List<Meal?>>> {
+        TODO("Not yet implemented")
+    }
 }
