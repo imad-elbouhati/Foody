@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.core.text.isDigitsOnly
 import androidx.fragment.app.activityViewModels
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.imadev.foody.R
 import com.imadev.foody.databinding.FragmentCheckoutBinding
 import com.imadev.foody.fcm.remote.Notification
@@ -251,7 +252,7 @@ class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CheckoutViewModel
 
                         viewModel.sendOrderToDeliveryUser(order, pushNotification)
 
-                        observeNotification()
+                        observeNotification(order)
                     }
 
                 }
@@ -261,14 +262,28 @@ class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CheckoutViewModel
 
     }
 
-    private fun observeNotification() {
+    private fun observeNotification(order: Order) {
         viewModel.notificationSent.collectFlow(viewLifecycleOwner) { sent ->
             if (sent) {
                 (activity as MainActivity).hideProgressBar()
+                
+                saveOrder(order)
+                
                 viewModel.navigate(R.id.action_checkoutFragment_to_homeFragment)
 
+                viewModel.resetList()
             }
         }
+        
+    }
+
+    private fun saveOrder(order: Order) {
+        order.uid = uid
+        
+        FirebaseFirestore.getInstance().collection("order_history").add(order).addOnFailureListener {
+            Log.d(TAG, "saveOrder: ${it.message}")
+        }
+
     }
 
 
@@ -282,6 +297,11 @@ class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CheckoutViewModel
         viewModel.navigate(R.id.action_checkoutFragment_to_mapsFragment)
 
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setToolbarTitle(requireActivity() as MainActivity)
     }
 
     override fun onClick(v: View?) {
