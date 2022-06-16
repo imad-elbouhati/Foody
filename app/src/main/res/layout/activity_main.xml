@@ -4,119 +4,172 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/motion_layout"
     android:layout_width="match_parent"
-    app:layoutDescription="@xml/scene"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    app:layoutDescription="@xml/scene"
     tools:context=".ui.MainActivity">
 
 
+    <View
+        android:id="@+id/view_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/foody_orange" />
 
-        <View
-            android:id="@+id/view_bg"
+    <TextView
+        android:id="@+id/home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:drawablePadding="8dp"
+        android:text="@string/home"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:drawableStartCompat="@drawable/ic_home"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:drawableTint="@color/white" />
+
+    <TextView
+        android:id="@+id/favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:drawablePadding="8dp"
+        android:text="@string/favourites"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:drawableStartCompat="@drawable/ic_heart"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:drawableTint="@color/white" />
+
+    <TextView
+        android:id="@+id/history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:drawablePadding="8dp"
+        android:text="@string/history"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:drawableStartCompat="@drawable/ic_history"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:drawableTint="@color/white" />
+
+    <TextView
+        android:id="@+id/sign_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="80dp"
+        android:drawablePadding="12dp"
+        android:text="@string/sign_out"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:drawableEndCompat="@drawable/ic_baseline_arrow_right_alt_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:visibility="gone">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/foody_orange" />
-
-        <TextView
-            android:id="@+id/sign_out"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginBottom="80dp"
-            android:text="@string/sign_out"
-            android:textColor="@color/white"
-            android:textSize="17sp"
-            android:drawablePadding="12dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/foody_background"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:drawableEndCompat="@drawable/ic_baseline_arrow_right_alt_24" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:visibility="gone">
+            app:layout_constraintTop_toTopOf="parent"
+            app:title=" ">
 
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/foody_background"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:title=" ">
+            <ImageView
+                android:id="@+id/menu_ic"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_baseline_menu_24" />
 
-
-                <ImageView
-                    android:id="@+id/menu_ic"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/ic_baseline_menu_24" />
-
-                <TextView
-                    android:id="@+id/toolbar_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    tools:text="Home" />
-
-
-                <include
-                    android:id="@+id/bubble_cart"
-                    layout="@layout/bubble_cart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="40dp" />
-
-                <ImageView
-                    android:id="@+id/favorite_icon"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:visibility="gone"
-                    android:src="@drawable/ic_heart"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="40dp"  />
-
-
-
-            </androidx.appcompat.widget.Toolbar>
-
-
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/fragmentContainer"
-                android:name="androidx.navigation.fragment.NavHostFragment"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:defaultNavHost="true"
-                app:layout_constraintBottom_toBottomOf="@+id/bottom_nav"
-                app:layout_constraintTop_toBottomOf="@+id/toolbar"
-                app:navGraph="@navigation/foody_graph" />
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottom_nav"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:menu="@menu/menu_bottom_navigation" />
-
-
-            <ProgressBar
-                android:id="@+id/progress_bar"
+            <TextView
+                android:id="@+id/toolbar_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                tools:text="Home" />
+
+
+            <include
+                android:id="@+id/bubble_cart"
+                layout="@layout/bubble_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="40dp" />
+
+            <ImageView
+                android:id="@+id/favorite_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="40dp"
+                android:src="@drawable/ic_heart"
+                android:visibility="gone" />
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainer"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toBottomOf="@+id/bottom_nav"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:navGraph="@navigation/foody_graph" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:menu="@menu/menu_bottom_navigation" />
+
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".2" />
 
 
     <!--    <com.google.android.material.navigation.NavigationView-->

@@ -1,1 +1,4 @@
-fix price overlapping counter
+- Remove user fragment from menu & navigation drawer
+- Add Home/Favorites/History menu and their navigation
+- Add navigation to See more
+- Display a message if not order made yet in HistoryFragment

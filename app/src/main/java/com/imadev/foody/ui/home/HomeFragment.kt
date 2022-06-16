@@ -75,18 +75,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         observeSubscribers()
         clickListeners()
 
-        binding.searchView.setOnClickListener {
-            val extras = FragmentNavigatorExtras(
-                binding.searchView to "search_view_trans"
-            )
 
-            findNavController().navigate(
-                R.id.action_homeFragment_to_searchFragment,
-                null,
-                null,
-                extras
-            )
-        }
+
+
 
 
 
@@ -112,6 +103,30 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         })
 
 
+
+        binding.searchView.setOnClickListener {
+            navigateToSearchFragment()
+        }
+
+
+        binding.seeMore.setOnClickListener {
+            navigateToSearchFragment()
+        }
+
+
+    }
+
+    private fun navigateToSearchFragment() {
+        val extras = FragmentNavigatorExtras(
+            binding.searchView to "search_view_trans"
+        )
+
+        findNavController().navigate(
+            R.id.action_homeFragment_to_searchFragment,
+            null,
+            null,
+            extras
+        )
     }
 
     private fun getMealsByCategory(categoryID: String) {
