@@ -35,6 +35,9 @@ class CheckoutViewModel @Inject constructor(
         MutableSharedFlow<Resource<List<DeliveryUser?>>>()
     val availableDeliveryUsers = _availableDeliveryUsers.asSharedFlow()
 
+    private var _notificationSent = MutableStateFlow(false)
+    var notificationSent = _notificationSent.asStateFlow()
+
 
     var order = Order()
         private set
@@ -120,7 +123,9 @@ class CheckoutViewModel @Inject constructor(
 
     private fun sendNotification(pushNotification: PushNotification) = viewModelScope.launch {
         val response = repository.sendNotification(pushNotification)
-        Log.d(TAG, "sendNotification: ${response.isSuccessful}")
+
+        _notificationSent.emit(response.isSuccessful)
+
     }
 
 
@@ -143,11 +148,13 @@ class CheckoutViewModel @Inject constructor(
 
                 }
                 is Resource.Success -> {
-
+                    sendNotification(pushNotification)
                 }
             }
         }
-        sendNotification(pushNotification)
+
     }
+
+
 
 }

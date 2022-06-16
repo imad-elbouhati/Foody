@@ -52,7 +52,6 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.homeFragment,
-                R.id.userFragment,
                 R.id.historyFragment,
                 R.id.favoritesFragment
             )
@@ -71,7 +70,6 @@ class MainActivity : AppCompatActivity() {
             val currentDestinationId = controller.currentDestination?.id
             if (currentDestinationId == R.id.homeFragment ||
                 currentDestinationId == R.id.favoritesFragment ||
-                currentDestinationId == R.id.userFragment ||
                 currentDestinationId == R.id.historyFragment
             ) {
                 binding.menuIc.show()

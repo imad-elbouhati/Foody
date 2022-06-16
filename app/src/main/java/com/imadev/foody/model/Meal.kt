@@ -18,7 +18,8 @@ data class Meal(
     var favorite: Boolean = false,
     var categoryId: String? = null,
     var quantity: Int = 0,
-    var uid:String=""
+    var uid: String = "",
+    var date: Long = -1L
 ) : Parcelable {
 
 

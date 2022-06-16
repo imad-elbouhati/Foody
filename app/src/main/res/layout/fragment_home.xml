@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,6 +11,7 @@
         android:id="@+id/constraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:background="@color/foody_background">
 
         <androidx.constraintlayout.widget.Guideline
@@ -93,13 +94,13 @@
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/food_list"
-            app:layout_constraintEnd_toEndOf="@+id/right_guideline" />
+            app:layout_constraintEnd_toEndOf="@+id/right_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/category_tabs" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/food_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="64dp"
             android:clipToPadding="false"
             android:orientation="horizontal"
             android:nestedScrollingEnabled="false"
@@ -107,11 +108,12 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/category_tabs"
+            android:layout_marginBottom="56dp"
             tools:itemCount="6"
+            app:layout_constraintTop_toBottomOf="@+id/see_more"
             tools:listitem="@layout/item_row_food_hom"
             tools:paddingStart="38dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</FrameLayout>
+</ScrollView>

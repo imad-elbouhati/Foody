@@ -9,9 +9,9 @@ import android.widget.Toast
 import androidx.core.text.isDigitsOnly
 import androidx.fragment.app.activityViewModels
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.imadev.foody.R
 import com.imadev.foody.databinding.FragmentCheckoutBinding
-import com.imadev.foody.fcm.MyFirebaseMessagingService
 import com.imadev.foody.fcm.remote.Notification
 import com.imadev.foody.fcm.remote.PushNotification
 import com.imadev.foody.model.Address
@@ -195,7 +195,7 @@ class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CheckoutViewModel
                     resources.getString(R.string.please_write_a_valid_number),
                     Toast.LENGTH_LONG
                 ).show()
-                // return
+                return
             }
         }
 
@@ -220,10 +220,12 @@ class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CheckoutViewModel
         viewModel.availableDeliveryUsers.collectFlow(viewLifecycleOwner) {
             when (it) {
                 is Resource.Error -> {
+                    (activity as MainActivity).hideProgressBar()
+
                     Log.d(TAG, "processTheOrder: ${it.error?.message}")
                 }
                 is Resource.Loading -> {
-
+                    (activity as MainActivity).showProgressBar()
                 }
                 is Resource.Success -> {
 
@@ -249,12 +251,38 @@ class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CheckoutViewModel
                         val pushNotification = PushNotification(notification, deliveryUser?.token)
 
                         viewModel.sendOrderToDeliveryUser(order, pushNotification)
+
+                        observeNotification(order)
                     }
 
                 }
             }
         }
 
+
+    }
+
+    private fun observeNotification(order: Order) {
+        viewModel.notificationSent.collectFlow(viewLifecycleOwner) { sent ->
+            if (sent) {
+                (activity as MainActivity).hideProgressBar()
+                
+                saveOrder(order)
+                
+                viewModel.navigate(R.id.action_checkoutFragment_to_homeFragment)
+
+                viewModel.resetList()
+            }
+        }
+        
+    }
+
+    private fun saveOrder(order: Order) {
+        order.uid = uid
+        
+        FirebaseFirestore.getInstance().collection("order_history").add(order).addOnFailureListener {
+            Log.d(TAG, "saveOrder: ${it.message}")
+        }
 
     }
 
@@ -269,6 +297,11 @@ class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CheckoutViewModel
         viewModel.navigate(R.id.action_checkoutFragment_to_mapsFragment)
 
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setToolbarTitle(requireActivity() as MainActivity)
     }
 
     override fun onClick(v: View?) {

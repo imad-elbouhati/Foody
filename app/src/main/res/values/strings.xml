@@ -75,4 +75,6 @@
     <string name="make_order">Make the order</string>
     <string name="new_order_messgae">Hello %1$s! you have new order</string>
     <string name="new_odrer" >New order</string>
+    <string name="permission_required_toast">Permission Required</string>
+    <string name="permission_rationale_location">Permission Rationale Location</string>
 </resources>

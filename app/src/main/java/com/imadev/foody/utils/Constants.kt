@@ -36,6 +36,8 @@ object Constants {
     const val CONTENT_TYPE = "application/json"
 
 
+    const val PERMISSIONS_REQUEST_LOCATION: Int = 0
+
 
 
 }

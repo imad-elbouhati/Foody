@@ -16,5 +16,6 @@ data class Order(
     val client: Client = Client(),
     val paymentMethod: PaymentMethod = PaymentMethod.CARD,
     val accepted: Boolean = false,
-    val to: String?=""
+    val to: String?="",
+    var uid:String =""
 )
