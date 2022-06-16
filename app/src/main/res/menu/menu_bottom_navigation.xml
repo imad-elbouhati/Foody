@@ -11,10 +11,10 @@
         android:icon="@drawable/ic_heart"
         android:title="@string/favourites" />
 
-    <item
-        android:id="@id/userFragment"
-        android:icon="@drawable/ic_user"
-        android:title="@string/user" />
+<!--    <item-->
+<!--        android:id="@id/userFragment"-->
+<!--        android:icon="@drawable/ic_user"-->
+<!--        android:title="@string/user" />-->
 
     <item
         android:id="@id/historyFragment"
