@@ -10,5 +10,14 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo The PR was merged
+     - name: Checkout the code
+       uses: actions/checkout@v3
+       
+     - name: Set up ruby env
+       uses: ruby/setup-ruby@v1
+       with:
+         ruby-version: 2.7.2 # omit if .ruby-version file exists in project, or replace with your team’s supported ruby version
+         bundler-cache: true
+         
+     - name: Uploading Apk to Firebase Distribution
+       run: bundle exec fastlane distribute
