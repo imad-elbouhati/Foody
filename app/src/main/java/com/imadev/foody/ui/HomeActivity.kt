@@ -2,8 +2,7 @@ package com.imadev.foody.ui
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
-import androidx.annotation.DrawableRes
+import android.view.View
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
@@ -22,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 private const val TAG = "MainActivity"
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private var mMotionProgress: Float = 0f
     private lateinit var binding: ActivityMainBinding
@@ -64,10 +63,18 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNav.setupWithNavController(navController)
 
 
-        // val viewModel = ViewModelProvider(this)[GenerateFoodViewModel::class.java]
+
+
+
+
 
         navController.addOnDestinationChangedListener { controller, _, _ ->
             val currentDestinationId = controller.currentDestination?.id
+
+            configToolbar(currentDestinationId)
+
+
+            //TODO to remove later
             if (currentDestinationId == R.id.homeFragment ||
                 currentDestinationId == R.id.favoritesFragment ||
                 currentDestinationId == R.id.historyFragment
@@ -77,28 +84,10 @@ class MainActivity : AppCompatActivity() {
                 binding.menuIc.hide()
             }
 
-            when (currentDestinationId) {
-                R.id.homeFragment -> {
-                    setToolbarTitle(R.string.home)
-                    setHomeToolbarIcon()
-                }
 
-                R.id.foodDetailsFragment -> {
-                    setFavoriteToolbarIcon()
-                }
-                else -> {
-                    binding.favoriteIcon.hide()
-                    binding.bubbleCart.hide()
-                }
-
-            }
         }
 
 
-
-        binding.signOut.setOnClickListener {
-            Toast.makeText(this@MainActivity, "To-Implement signout", Toast.LENGTH_SHORT).show()
-        }
 
 
 
@@ -142,11 +131,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        binding.signOut.setOnClickListener {
-            Firebase.auth.signOut()
-            getSharedPreferences(Constants.FCM_TOKEN_PREF, MODE_PRIVATE).edit().clear().apply()
-            moveTo(LoginActivity::class.java)
-        }
+        subscribeClickListeners()
 
 
         binding.bottomNav.setOnItemSelectedListener { item ->
@@ -154,6 +139,33 @@ class MainActivity : AppCompatActivity() {
             NavigationUI.onNavDestinationSelected(item, navController)
 
             return@setOnItemSelectedListener true
+        }
+
+    }
+
+    private fun subscribeClickListeners() {
+        binding.signOut.setOnClickListener(this)
+        binding.favorite.setOnClickListener(this)
+        binding.home.setOnClickListener(this)
+        binding.history.setOnClickListener(this)
+    }
+
+    private fun configToolbar(currentDestinationId: Int?) {
+
+        when (currentDestinationId) {
+            R.id.homeFragment -> {
+                setToolbarTitle(R.string.home)
+                setHomeToolbarIcon()
+            }
+
+            R.id.foodDetailsFragment -> {
+                setFavoriteToolbarIcon()
+            }
+            else -> {
+                binding.favoriteIcon.hide()
+                binding.bubbleCart.hide()
+            }
+
         }
 
     }
@@ -169,13 +181,13 @@ class MainActivity : AppCompatActivity() {
         binding.toolbarTitle.text = getString(title)
     }
 
-    fun setHomeToolbarIcon() {
+    private fun setHomeToolbarIcon() {
         binding.favoriteIcon.hide()
         binding.bubbleCart.show()
     }
 
 
-    fun setFavoriteToolbarIcon() {
+    private fun setFavoriteToolbarIcon() {
         binding.bubbleCart.hide()
         binding.favoriteIcon.show()
     }
@@ -203,12 +215,42 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         Log.d(TAG, "onBackPressed: $isDrawerActive")
 
-        if(isDrawerActive) {
+        if (isDrawerActive) {
             binding.motionLayout.transitionToStart()
             return
         }
         super.onBackPressed()
     }
 
+    override fun onClick(v: View?) {
+
+        when (v?.id) {
+            R.id.sign_out -> {
+                signOut()
+            }
+
+            R.id.favorite -> {
+                navController.navigate(R.id.action_homeFragment_to_favoritesFragment)
+                binding.motionLayout.transitionToStart()
+            }
+            R.id.history -> {
+                navController.navigate(R.id.action_homeFragment_to_historyFragment)
+                binding.motionLayout.transitionToStart()
+            }
+            R.id.home -> {
+                navController.navigate(R.id.action_homeFragment_self)
+                binding.motionLayout.transitionToStart()
+            }
+        }
+    }
+
+    private fun signOut() {
+        Firebase.auth.signOut()
+        getSharedPreferences(Constants.FCM_TOKEN_PREF, MODE_PRIVATE).edit().clear().apply()
+        moveTo(LoginActivity::class.java)
+    }
+
 }
+
+
 

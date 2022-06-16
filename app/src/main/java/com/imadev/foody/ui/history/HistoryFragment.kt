@@ -16,6 +16,8 @@ import com.imadev.foody.model.Meal
 import com.imadev.foody.model.Order
 import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.ui.common.BaseFragment
+import com.imadev.foody.utils.hide
+import com.imadev.foody.utils.show
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -49,7 +51,7 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding, HistoryViewModel>()
                 }
             }
             Log.d(TAG, "onViewCreated: ${list}")
-
+            showNoHistoryContainer(list)
             binding.list.adapter = HistoryMealsAdapter(list)
 
         }.addOnFailureListener {
@@ -58,6 +60,9 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding, HistoryViewModel>()
 
     }
 
+    private fun showNoHistoryContainer(list: List<Meal>) {
+        if(list.isNotEmpty()) binding.noHistoryContainer.hide() else binding.noHistoryContainer.show()
+    }
 
     override fun createViewBinding(
         inflater: LayoutInflater,

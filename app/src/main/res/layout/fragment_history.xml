@@ -7,6 +7,30 @@
     android:background="@color/foody_background"
     tools:context=".ui.history.HistoryFragment">
 
+    <RelativeLayout
+        android:id="@+id/no_history_container"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/no_history_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/history" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/no_history_img"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/no_orders_yet"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"

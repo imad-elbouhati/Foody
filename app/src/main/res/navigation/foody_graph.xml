@@ -4,6 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/foody_graph"
     app:startDestination="@id/homeFragment">
+
+    <action
+        android:id="@+id/action_homeFragment_to_historyFragment"
+        app:destination="@id/historyFragment" />
+    <action
+        android:id="@+id/action_homeFragment_to_favoritesFragment"
+        app:destination="@id/favoritesFragment" />
+    <action
+        android:id="@+id/action_homeFragment_self"
+        app:destination="@id/homeFragment" />
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.imadev.foody.ui.home.HomeFragment"
@@ -17,6 +28,7 @@
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/foodDetailsFragment"
