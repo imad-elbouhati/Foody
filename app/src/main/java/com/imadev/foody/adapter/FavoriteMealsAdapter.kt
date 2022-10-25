@@ -33,9 +33,6 @@ class FavoriteMealsAdapter(private var meals: MutableList<Meal> = mutableListOf(
                 foodImg.loadFromUrl(context,meal.image)
                 foodTitle.text = meal.name
                 foodPrice.text = context.resources.getString(R.string.price, meal.price.toString())
-
-
-                
             }
         }
     }

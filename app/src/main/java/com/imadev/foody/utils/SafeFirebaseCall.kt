@@ -9,7 +9,7 @@ inline fun <T> safeFirebaseCall(
     crossinline firebaseCall: suspend () -> T
 ) = flow {
 
-    emit(Resource.Loading(null))
+    emit(Resource.Loading())
 
     try {
         emit(Resource.Success(firebaseCall.invoke()))

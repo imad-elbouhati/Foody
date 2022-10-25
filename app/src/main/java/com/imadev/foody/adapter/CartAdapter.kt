@@ -38,7 +38,6 @@ class CartAdapter(private var meals: MutableList<Meal> = mutableListOf()) : Recy
                 counter.setFoodModel(meal)
                 counter.setQuantity(meal.quantity)
 
-                Log.d(TAG, "bind: ${counter.isVisible}")
 
 
             }

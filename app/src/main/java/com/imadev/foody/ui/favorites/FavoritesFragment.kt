@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
@@ -16,6 +17,7 @@ import com.imadev.foody.adapter.FavoriteMealsAdapter
 import com.imadev.foody.model.Meal
 import com.imadev.foody.ui.MainActivity
 import com.imadev.foody.utils.hide
+import com.imadev.foody.utils.showErrorToast
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -52,12 +54,11 @@ class FavoritesFragment : Fragment() {
             it.forEach {
                 list.add(it.toObject(Meal::class.java))
             }
-            Log.d(TAG, "onViewCreated: ${list}")
 
             recyclerView.adapter = FavoriteMealsAdapter(list)
 
         }.addOnFailureListener {
-            Log.d(TAG, "onViewCreated: ${it?.message}")
+            showErrorToast()
         }
     }
 

@@ -63,11 +63,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.bottomNav.setupWithNavController(navController)
 
 
-
-
-
-
-
         navController.addOnDestinationChangedListener { controller, _, _ ->
             val currentDestinationId = controller.currentDestination?.id
 

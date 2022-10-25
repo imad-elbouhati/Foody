@@ -138,17 +138,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 val data = it.data
                 when (it) {
                     is Resource.Loading -> {
-                        Log.d(TAG, "Loading...")
                         (activity as MainActivity).showProgressBar()
                     }
                     is Resource.Success -> {
                         (activity as MainActivity).hideProgressBar()
                         data?.let {
                             mealAdapter = MealListHomeAdapter(data as ArrayList<Meal?>)
-                            Log.d(TAG, "getMealsByCategory: $data")
+
                             binding.foodList.adapter = mealAdapter
                             mealAdapter?.setItemClickListener { meal, _ ->
-                                Log.d(TAG, "onViewCreated: $mealAdapter")
                                 viewModel.navigate(
                                     R.id.action_homeFragment_to_foodDetailsFragment,
                                     bundleOf(MEAL_ARG to meal)

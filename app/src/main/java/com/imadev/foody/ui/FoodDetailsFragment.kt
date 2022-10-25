@@ -22,6 +22,7 @@ import com.imadev.foody.ui.home.HomeViewModel
 import com.imadev.foody.utils.Constants.MEAL_ARG
 import com.imadev.foody.utils.loadFromUrl
 import com.imadev.foody.utils.setIcon
+import com.imadev.foody.utils.showErrorToast
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -120,7 +121,7 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding, HomeViewMod
     private fun removeFromFavorites() {
         meal?.let {
             firestore.collection("favorites").document(mMealID).delete().addOnFailureListener {
-                Log.d(TAG, "removeFromFavorites: ${it.message}")
+                showErrorToast()
             }
         }
     }
@@ -131,7 +132,7 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding, HomeViewMod
             m.favorite = true
             m.uid = FirebaseAuth.getInstance().uid.toString()
             firestore.collection("favorites").document(mMealID).set(m).addOnFailureListener {
-                Log.d(TAG, "removeFromFavorites: ${it.message}")
+                showErrorToast()
             }
         }
     }

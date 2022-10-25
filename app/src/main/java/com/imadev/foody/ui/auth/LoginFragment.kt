@@ -37,6 +37,7 @@ import com.imadev.foody.utils.Constants
 import com.imadev.foody.utils.Constants.CLIENTS_COLLECTION
 import com.imadev.foody.utils.Constants.RC_SIGN_IN
 import com.imadev.foody.utils.moveTo
+import com.imadev.foody.utils.showErrorToast
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -101,12 +102,13 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, AuthViewModel>() {
             FacebookCallback<LoginResult> {
 
             override fun onCancel() {
-                TODO("Not yet implemented")
+                showErrorToast()
+
             }
 
 
             override fun onError(error: FacebookException) {
-                Log.d(TAG, "onError: ${error.message}")
+                showErrorToast()
                 Toast.makeText(requireContext(), error.message, Toast.LENGTH_LONG).show()
             }
 

@@ -32,7 +32,7 @@ object Constants {
 
 
     const val BASE_URL = "https://fcm.googleapis.com"
-    const val SERVER_KEY = "AAAAW2Y_MOs:APA91bHouBRzJZ2R-ELsHDipNEEJhagmGMKQrqAQv9NN3bgVoZSN-THkyuBLRZAoXR-kkGOPOcC_P9YLRXBwpnIuMttSN30vB4Tl7oTVIvDj6NeVOx7rnk1QKa12RE2iUAI9avvMJm6e"
+
     const val CONTENT_TYPE = "application/json"
 
 
