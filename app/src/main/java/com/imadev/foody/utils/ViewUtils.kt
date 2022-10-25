@@ -14,6 +14,7 @@ import android.view.WindowInsets
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.ColorInt
 import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.core.widget.addTextChangedListener
@@ -110,4 +111,6 @@ fun EditText.stickPrefix(prefix: String) {
 }
 
 
-
+fun Fragment.showErrorToast() {
+    Toast.makeText(requireContext(), getString(R.string.something_went_wrong), Toast.LENGTH_SHORT).show()
+}
